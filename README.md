@@ -5,9 +5,9 @@ En este proyecto se realizan las pruebas unitaras
 
 # Autores
 
-Veronica Mendoza Arango
-Santiago Ramirez Bernal
-Jorge Andres Ibarra Guzman
+- Veronica Mendoza Arango
+- Santiago Ramirez Bernal
+- Jorge Andres Ibarra Guzman
 
 # Herramientas
 
