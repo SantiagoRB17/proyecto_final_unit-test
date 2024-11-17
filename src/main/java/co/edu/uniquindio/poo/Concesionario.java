@@ -4,7 +4,7 @@ import java.util.LinkedList;
 
 public class Concesionario {
     private String nombre;
-    private final String contrasena = "22N35";
+    //private final String contrasena = "22N35";
     private LinkedList<Sede> sedes;
     private LinkedList<Administrador> administradores;
 

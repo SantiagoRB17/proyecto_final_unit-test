@@ -1,17 +1,11 @@
 package co.edu.uniquindio.poo;
 
-import java.util.LinkedList;
-
 public class Empleado extends Usuario implements IGestionEmpleado {
     
     private int idEmpleado;
     private boolean estado;
     private Sede sede;
-    private LinkedList<Cliente> clientes;
-    private LinkedList<Vehiculo> vehiculos;
-
     
-
     public Empleado(String nombre, String cedula, long telefono, String usuario, String clave, TipoRol rol,
             int idEmpleado, boolean estado, Sede sede) {
         super(nombre, cedula, telefono, usuario, clave, rol);

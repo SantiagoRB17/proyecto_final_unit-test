@@ -46,7 +46,6 @@ public class Compra extends Transaccion {
      */
     @Override
     public double calcularTotal() {
-        // TODO Auto-generated method stub
         return 0;
     }
 
