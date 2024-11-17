@@ -15,6 +15,7 @@ public class Sedan extends VehiculoElectrico {
     private boolean tienesensoresDeColision;
     private boolean tieneSensorDeTraficoCruzado;
     private boolean tieneAsistenteDePermanenciaEnElCarril;
+    public static final double PrecioVenta = 2.700000;
 
 
     public Sedan(Tipo_Transmision tipoTransmision, String marca, boolean esNuevo, String modelo, int numeroCambios,

@@ -12,6 +12,7 @@ public class PickUp extends VehiculoHibrido{
     private boolean tieneABS;
     private boolean es4x4;
     private double capacidadCajaNegra;
+    public static final double PrecioVenta = 4.600000;
     
     public PickUp(Tipo_Transmision tipoTransmision, String marca, boolean esNuevo, String modelo, int numeroCambios,
             double maximaVelocidad, int cilindraje,double precioDiaAlquiler, Tipo_Combustible tipoCombustibleHibrido, int autonomia,
