@@ -67,7 +67,7 @@ public class Venta extends Transaccion {
             }
             return Van.PrecioVenta;
         }
-
+        
     }
     
     @Override
