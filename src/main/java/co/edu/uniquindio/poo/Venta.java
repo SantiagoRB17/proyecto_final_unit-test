@@ -12,6 +12,7 @@ public class Venta extends Transaccion {
         super(codigo, fechaEntregaVehiculo, empleado, vehiculo);
         this.total= calcularTotal();
     }
+    
     public double getTotal() {
         return total;
     }

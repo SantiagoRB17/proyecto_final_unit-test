@@ -268,4 +268,105 @@ public class Sede {
                 + codigoSeguridad + ", administrador=" + administrador + ", empleados=" + empleados + ", clientes="
                 + clientes + ", transacciones=" + transacciones + ", vehiculos=" + vehiculos;
     }
+
+    public boolean verificarCliente(String cedula) {
+        boolean centinela = false;
+        for (Cliente cliente : clientes) {
+            if (cliente.getCedula().equals(cedula)) {
+                centinela = true;
+                break;
+            }
+        }
+        return centinela;
+    }
+
+    public boolean agregarCliente(Cliente cliente) {
+        boolean centinela = false;
+        if (!verificarCliente(cliente.getCedula())) {
+            clientes.add(cliente);
+            centinela = true;
+        }else{
+            throw new IllegalArgumentException("El cliente ya existe");
+        }
+        return centinela;
+    }
+
+    public boolean eliminarCliente(String cedula) {
+        boolean centinela = false;
+        for (Cliente cliente : clientes) {
+            if (cliente.getCedula().equals(cedula)) {
+                clientes.remove(cliente);
+                centinela = true;
+                break;
+            }else{
+                throw new IllegalArgumentException("La cedula del cliente no coincide con la cedula ingresada");
+            }
+        }
+        return  centinela;
+    }
+
+    public boolean actualizarCliente(String cedula, Cliente nuevoCliente) {
+        boolean centinela = false;
+        for (int i = 0; i < clientes.size(); i++) {
+            if (clientes.get(i).getCedula().equals(cedula)) {
+                clientes.set(i, nuevoCliente);
+                centinela = true;
+            }else{
+                throw new IllegalArgumentException("No se pudo actualizar al cliente");
+            }
+        }
+        return centinela;
+    }
+
+    public boolean verificarEmpleado(String cedula) {
+        boolean centinela = false;
+        for (Empleado empleado : empleados) {
+            if (empleado.getCedula().equals(cedula)) {
+                centinela = true;
+                break;
+            }
+        }
+        return centinela;
+    }
+
+    public boolean agregarEmpleado(Empleado empleado) {
+        boolean centinela = false;
+        if (!verificarEmpleado(empleado.getCedula())) {
+            empleados.add(empleado);
+            centinela = true;
+        }
+        return centinela;
+    }
+
+    public boolean eliminarEmpleado(String cedula) {
+        boolean centinela = false;
+        for (Empleado empleado : empleados) {
+            if (empleado.getCedula().equals(cedula)) {
+                empleados.remove(empleado);
+                centinela = true;
+                break;
+            }
+        }
+        return centinela;
+    }
+
+    public boolean actualizarEmpleado(String cedula, Empleado nuevoEmpleado) {
+        boolean centinela = false;
+        for (int i = 0; i < empleados.size(); i++) {
+            if (empleados.get(i).getCedula().equals(cedula)) {
+                empleados.set(i, nuevoEmpleado);
+                centinela = true;
+            }
+        }
+        return centinela;
+    }
+
+    public boolean agregarVehiculo(Vehiculo vehiculo) {
+        boolean centinela = false;
+        if (vehiculo != null) {
+            vehiculos.add(vehiculo);
+            centinela = true; 
+        }
+        return centinela;
+    }
 }

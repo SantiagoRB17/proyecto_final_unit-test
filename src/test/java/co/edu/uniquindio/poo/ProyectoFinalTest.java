@@ -10,6 +10,7 @@ package co.edu.uniquindio.poo;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+
 import java.util.logging.Logger;
 
 import org.junit.jupiter.api.Test;
@@ -29,11 +30,13 @@ public class ProyectoFinalTest {
         LOG.info("Iniciado test");
 
         Concesionario concesionario = new Concesionario("Tu Carro UQ");
+        Sede sede = new Sede("principal", "norte", "armenia", "123");
         Administrador administrador1 = new Administrador("Santiago Bernal", "1092457", 123456, "Santiagoob", "457890N",
                 TipoRol.ADMINISTRADOR, "Lucas");
 
         LOG.info(concesionario.toString());
 
+        concesionario.agregarSedes(sede);
         concesionario.agregarAdministrador(administrador1);
 
         LOG.info(concesionario.toString());
@@ -171,5 +174,5 @@ public class ProyectoFinalTest {
         assertThrows(IllegalArgumentException.class, () -> concesionario.cambiarAdministradorSede(null, sede));
         LOG.info("Finalizando test");
     }
-
+ 
 }

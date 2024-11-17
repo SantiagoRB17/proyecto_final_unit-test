@@ -20,6 +20,7 @@ public abstract class Transaccion {
         this.codigo = codigo;
         this.fechaEntregaVehiculo = fechaEntregaVehiculo;
         this.empleado = empleado;
+        this.vehiculo = vehiculo;
     }
 
     /**
