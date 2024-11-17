@@ -94,7 +94,7 @@ public abstract class Transaccion {
      * 
      * @return
      */
-    public abstract double calcularTotal();
+    public abstract double calcularTotal() throws PrecioVehiculoVacioException;
 
     /**
      * Metodo to string para mostrar la informacion de la transaccion

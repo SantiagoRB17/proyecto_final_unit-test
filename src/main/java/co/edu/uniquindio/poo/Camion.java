@@ -10,7 +10,7 @@ public class Camion extends VehiculoElectrico {
     private boolean tieneABS;
     private int numeroEjes;
     private String tipoCamion;
-    
+    public static final double PrecioVenta = 2.600000;
 
 
     public Camion(Tipo_Transmision tipoTransmision, String marca, boolean esNuevo, String modelo, int numeroCambios,

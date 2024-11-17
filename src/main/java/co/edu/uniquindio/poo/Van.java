@@ -11,6 +11,7 @@ public class Van extends VehiculoElectrico {
     private boolean tieneCamaraDeReversa;
     private int numeroBolsasDeAire;
     private boolean tieneABS;
+    public static final double PrecioVenta = 8.600000;
 
 
     public Van(Tipo_Transmision tipoTransmision, String marca, boolean esNuevo, String modelo, int numeroCambios,
