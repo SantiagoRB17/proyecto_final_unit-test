@@ -6,21 +6,23 @@ public class Sede {
     private String nombre;
     private String direccion;
     private String ciudad;
+    private String codigoSeguridad;
     private Administrador administrador;
     private LinkedList<Empleado> empleados;
     private LinkedList<Cliente> clientes;
     private LinkedList<Transaccion> transacciones;
     private LinkedList<Vehiculo> vehiculos;
 
-    public Sede(String nombre, String direccion, String ciudad, Administrador administrador) {
+    public Sede(String nombre, String direccion, String ciudad, String codigoSeguridad) {
         this.nombre = nombre;
         this.direccion = direccion;
         this.ciudad = ciudad;
-        this.administrador = administrador;
+        this.administrador = null;
         this.empleados = new LinkedList<>();
         this.clientes = new LinkedList<>();
         this.transacciones = new LinkedList<>();
         this.vehiculos = new LinkedList<>();
+        this.codigoSeguridad=codigoSeguridad;
     }
 
     public String getNombre() {
@@ -87,8 +89,18 @@ public class Sede {
         this.vehiculos = vehiculos;
     }
 
-    
-    
+    public String getCodigoSeguridad() {
+        return codigoSeguridad;
+    }
 
-    
+    public void setCodigoSeguridad(String codigoSeguridad) {
+        this.codigoSeguridad = codigoSeguridad;
+    }
+
+    @Override
+    public String toString() {
+        return "Sede: nombre=" + nombre + ", direccion=" + direccion + ", ciudad=" + ciudad + ", codigoSeguridad="
+                + codigoSeguridad + ", administrador=" + administrador + ", empleados=" + empleados + ", clientes="
+                + clientes + ", transacciones=" + transacciones + ", vehiculos=" + vehiculos;
+    }
 }

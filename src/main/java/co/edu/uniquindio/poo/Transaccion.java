@@ -27,6 +27,9 @@ public abstract class Transaccion {
      * @return
      */
     public abstract double calcularTotal();
+    /**
+     * Metodo to string para mostrar la informacion de la transaccion
+     */
     @Override
     public String toString() {
         return "codigo=" + codigo + ", fecha=" + fecha;
