@@ -10,10 +10,10 @@ public class Vehiculo {
     protected int numeroCambios;
     protected double maximaVelocidad;
     protected int cilindraje;
-    protected LocalDate precioDia;
-    
+    private double precioDiaAlquiler;
+
     public Vehiculo(Tipo_Transmision tipoTransmision, String marca, boolean esNuevo, String modelo, int numeroCambios,
-            double maximaVelocidad, int cilindraje) {
+            double maximaVelocidad, int cilindraje, double precioDiaAlquiler) {
         this.tipoTransmision = tipoTransmision;
         this.marca = marca;
         this.esNuevo = esNuevo;
@@ -21,6 +21,7 @@ public class Vehiculo {
         this.numeroCambios = numeroCambios;
         this.maximaVelocidad = maximaVelocidad;
         this.cilindraje = cilindraje;
+        this. precioDiaAlquiler = precioDiaAlquiler;
     }
     
     public Tipo_Transmision getTipoTransmision() {
@@ -65,12 +66,20 @@ public class Vehiculo {
     public void setCilindraje(int cilindraje) {
         this.cilindraje = cilindraje;
     }
+    public double getPrecioDiaAlquiler() {
+        return precioDiaAlquiler;
+    }
+
+    public void setPrecioDiaAlquiler(double precioDiaAlquiler) {
+        this.precioDiaAlquiler = precioDiaAlquiler;
+    }
 
     @Override
     public String toString() {
-        return "tipoTransmision=" + tipoTransmision + ", marca=" + marca + ", esNuevo=" + esNuevo
+        return "Vehiculo [tipoTransmision=" + tipoTransmision + ", marca=" + marca + ", esNuevo=" + esNuevo
                 + ", modelo=" + modelo + ", numeroCambios=" + numeroCambios + ", maximaVelocidad=" + maximaVelocidad
-                + ", cilindraje=" + cilindraje;
+                + ", cilindraje=" + cilindraje + ", precioDiaAlquiler=" + precioDiaAlquiler + "]";
     }
+    
     
 }

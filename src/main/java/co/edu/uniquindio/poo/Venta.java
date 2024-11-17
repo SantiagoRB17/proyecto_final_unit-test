@@ -4,9 +4,12 @@ import java.time.LocalDate;
 
 
 public class Venta extends Transaccion {
+
     private double total;
+
     public Venta(int codigo, LocalDate fecha) {
         super(codigo, fecha);
+        
         this.total= calcularTotal();
     }
     public double getTotal() {

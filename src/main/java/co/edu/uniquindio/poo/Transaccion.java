@@ -4,11 +4,11 @@ import java.time.LocalDate;
 
 public abstract class Transaccion {
     protected int codigo;
-    protected LocalDate fecha;
+    protected LocalDate fechaEntregaVehiculo;
 
-    public Transaccion(int codigo, LocalDate fecha) {
+    public Transaccion(int codigo, LocalDate fechaEntregaVehiculo) {
         this.codigo = codigo;
-        this.fecha = fecha;
+        this.fechaEntregaVehiculo = fechaEntregaVehiculo;
     }
     public int getCodigo() {
         return codigo;
@@ -16,11 +16,11 @@ public abstract class Transaccion {
     public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
-    public LocalDate getFecha() {
-        return fecha;
+    public LocalDate getFechaEntregaVehiculo() {
+        return fechaEntregaVehiculo;
     }
-    public void setFecha(LocalDate fecha) {
-        this.fecha = fecha;
+    public void setFechaEntregaVehiculo(LocalDate fechaEntregaVehiculo) {
+        this.fechaEntregaVehiculo = fechaEntregaVehiculo;
     }
     /**
      * Declaracion del metodo para calculcar el total de cada tipo de transaccion
@@ -32,6 +32,6 @@ public abstract class Transaccion {
      */
     @Override
     public String toString() {
-        return "codigo=" + codigo + ", fecha=" + fecha;
+        return "codigo=" + codigo + ", fechaEntregaVehiculo=" + fechaEntregaVehiculo;
     }
 }
