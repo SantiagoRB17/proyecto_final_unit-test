@@ -5,12 +5,10 @@ import java.util.LinkedList;
 
 public class Alquiler extends Transaccion{
     private int diasAlquiler;
-    private LinkedList<DetalleAlquiler> DetalleAlquileres;
     private double total;
     public Alquiler(int codigo, LocalDate fecha, int diasAlquiler) {
         super(codigo, fecha);
         this.diasAlquiler = diasAlquiler;
-        this.DetalleAlquileres= new LinkedList<>();
         this.total=calcularTotal();
     }
     public int getDiasAlquiler() {
@@ -18,12 +16,6 @@ public class Alquiler extends Transaccion{
     }
     public void setDiasAlquiler(int diasAlquiler) {
         this.diasAlquiler = diasAlquiler;
-    }
-    public LinkedList<DetalleAlquiler> getDetalleAlquileres() {
-        return DetalleAlquileres;
-    }
-    public void setDetalleAlquileres(LinkedList<DetalleAlquiler> detalleAlquileres) {
-        DetalleAlquileres = detalleAlquileres;
     }
     public double getTotal() {
         return total;

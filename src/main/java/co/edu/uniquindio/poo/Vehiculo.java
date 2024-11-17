@@ -1,5 +1,7 @@
 package co.edu.uniquindio.poo;
 
+import java.time.LocalDate;
+
 public class Vehiculo {
     protected Tipo_Transmision tipoTransmision;
     protected String marca;
@@ -8,7 +10,7 @@ public class Vehiculo {
     protected int numeroCambios;
     protected double maximaVelocidad;
     protected int cilindraje;
-    
+    protected LocalDate precioDia;
     
     public Vehiculo(Tipo_Transmision tipoTransmision, String marca, boolean esNuevo, String modelo, int numeroCambios,
             double maximaVelocidad, int cilindraje) {
