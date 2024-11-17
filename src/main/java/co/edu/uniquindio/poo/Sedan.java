@@ -18,11 +18,11 @@ public class Sedan extends VehiculoElectrico {
 
 
     public Sedan(Tipo_Transmision tipoTransmision, String marca, boolean esNuevo, String modelo, int numeroCambios,
-            double maximaVelocidad, int cilindraje, int autonomia, double tiempoDeCarga, int numeroPasajeros,
+            double maximaVelocidad, int cilindraje,double precioDiaAlquiler, int autonomia, double tiempoDeCarga, int numeroPasajeros,
             int numeroPuertas, double capacidadMaletero, boolean tieneAireAcondicionado, boolean tieneCamaraDeReversa,
             boolean tieneVelocidadCrucero, int numeroBolsasDeAire, boolean tieneABS, boolean tienesensoresDeColision,
             boolean tieneSensorDeTraficoCruzado, boolean tieneAsistenteDePermanenciaEnElCarril) {
-        super(tipoTransmision, marca, esNuevo, modelo, numeroCambios, maximaVelocidad, cilindraje, autonomia,
+        super(tipoTransmision, marca, esNuevo, modelo, numeroCambios, maximaVelocidad, cilindraje, precioDiaAlquiler, autonomia,
                 tiempoDeCarga);
         this.numeroPasajeros = numeroPasajeros;
         this.numeroPuertas = numeroPuertas;
