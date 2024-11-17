@@ -7,8 +7,8 @@ public class Venta extends Transaccion {
 
     private double total;
 
-    public Venta(int codigo, LocalDate fecha) {
-        super(codigo, fecha);
+    public Venta(int codigo, LocalDate fecha,Empleado empleado) {
+        super(codigo, fecha, empleado);
         
         this.total= calcularTotal();
     }

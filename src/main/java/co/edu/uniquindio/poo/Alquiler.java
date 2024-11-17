@@ -1,7 +1,6 @@
 package co.edu.uniquindio.poo;
 
 import java.time.LocalDate;
-import java.util.LinkedList;
 import java.time.temporal.ChronoUnit;
 
 
