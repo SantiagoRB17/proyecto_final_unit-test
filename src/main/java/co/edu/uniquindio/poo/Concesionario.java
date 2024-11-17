@@ -107,9 +107,10 @@ public class Concesionario {
             administradores.add(administrador);
         }
         else{
-            System.out.println("El administrador ya existe");
+            throw new IllegalArgumentException("El administrador ya existe");
         }
     }
+
     /**
      * Método que verifica si una sede se encuentra en la lista de sedes.
      * 
@@ -135,28 +136,30 @@ public class Concesionario {
         if (!verificarSede(sede.getDireccion())) {
             sedes.add(sede);
         }
+        else{
+            throw new IllegalArgumentException("Esta sede ya existe");
+        }
     }
+
     /**
      * Método que permite asignar un nuevo administrador a otra sede.
-     * 
-     * @param cedula
-     * @param sede
+     * @param cedula cedula del administrador que se va asginar a la sede
+     * @param sede sede que a la cual se le va asignar el administrador
      */
-    public void cambiarAdministradorSede(String cedula, Sede sede) {
+    public void cambiarAdministradorSede(String cedula, Sede sede) throws ExcepcionSedeOcupada{
         boolean centinela = false;
         for (Administrador administrador : administradores) {
             if (administrador.getCedula().equals(cedula)) {
                 centinela = true;
                 if (sede.getAdministrador() != null && sede.getAdministrador().equals(administrador)) {
-                    System.out.println("El administrador ya está asignado a esta sede.");
-                    break;
+                    throw new ExcepcionSedeOcupada ("El administrador ya está asignado a esta sede.");
                 }
                 sede.setAdministrador(administrador);
                 break;
             }
         }
         if(!centinela){
-            System.out.println("El administrador no existe");
+            throw new IllegalArgumentException ("El administrador no existe");
         }
     }
 
