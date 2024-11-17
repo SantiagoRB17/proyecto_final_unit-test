@@ -35,4 +35,10 @@ public class Empleado extends Usuario {
     }
 
 
+    @Override
+    public String toString() {
+        return "Empleado "+ super.toString()+ ", idEmpleado=" + idEmpleado + ", estado=" + estado;
+    }
+
+    
 }
