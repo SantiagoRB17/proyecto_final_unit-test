@@ -102,13 +102,16 @@ public class Concesionario {
      * 
      * @param administrador administrador a agregar
      */
-    public void agregarAdministrador(Administrador administrador) {
+    public boolean agregarAdministrador(Administrador administrador) {
+        boolean centinela = false;
         if (!verificarAdministrador(administrador.getCedula())) {
             administradores.add(administrador);
+            centinela = true;
         }
         else{
             throw new IllegalArgumentException("El administrador ya existe");
         }
+        return centinela;
     }
 
     /**
@@ -132,13 +135,16 @@ public class Concesionario {
      * 
      * @param sede
      */
-    public void agregarSedes(Sede sede) {
+    public boolean agregarSedes(Sede sede) {
+        boolean centinela = false;
         if (!verificarSede(sede.getDireccion())) {
             sedes.add(sede);
+            centinela = true;
         }
         else{
             throw new IllegalArgumentException("Esta sede ya existe");
         }
+        return centinela;
     }
 
     /**
@@ -146,7 +152,7 @@ public class Concesionario {
      * @param cedula cedula del administrador que se va asginar a la sede
      * @param sede sede que a la cual se le va asignar el administrador
      */
-    public void cambiarAdministradorSede(String cedula, Sede sede) throws ExcepcionSedeOcupada{
+    public boolean cambiarAdministradorSede(String cedula, Sede sede) throws ExcepcionSedeOcupada{
         boolean centinela = false;
         for (Administrador administrador : administradores) {
             if (administrador.getCedula().equals(cedula)) {
@@ -161,6 +167,7 @@ public class Concesionario {
         if(!centinela){
             throw new IllegalArgumentException ("El administrador no existe");
         }
+        return centinela;
     }
 
     /**

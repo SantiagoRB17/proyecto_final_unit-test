@@ -9,6 +9,7 @@ package co.edu.uniquindio.poo;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.logging.Logger;
 
@@ -29,11 +30,13 @@ public class ProyectoFinalTest {
         LOG.info("Iniciado test");
 
         Concesionario concesionario = new Concesionario("Tu Carro UQ");
+        Sede sede = new Sede("principal", "norte", "armenia", "123");
         Administrador administrador1 = new Administrador("Santiago Bernal", "1092457", 123456, "Santiagoob", "457890N",
                 TipoRol.ADMINISTRADOR, "Lucas");
 
         LOG.info(concesionario.toString());
 
+        concesionario.agregarSedes(sede);
         concesionario.agregarAdministrador(administrador1);
 
         LOG.info(concesionario.toString());
@@ -171,5 +174,125 @@ public class ProyectoFinalTest {
         assertThrows(IllegalArgumentException.class, () -> concesionario.cambiarAdministradorSede(null, sede));
         LOG.info("Finalizando test");
     }
+
+    /**
+     * Test del administrador para agregar un cliente
+     */
+    @Test
+    public void agregarClienteAdministradorTest() throws ExcepcionSedeOcupada {
+        LOG.info("Iniciando prueba de agregar cliente");
+
+        Concesionario concesionario = new Concesionario("Tu Carro UQ");
+        Administrador admin = new Administrador("Juan", "123456", 987654321, "juanAdmin", "clave123",
+                TipoRol.ADMINISTRADOR, "Pregunta");
+        Sede sede = new Sede("Principal", "Cra 8 #28 sur", "Armenia", "6675a");
+
+        concesionario.agregarAdministrador(admin);
+        concesionario.agregarSedes(sede);
+
+        admin.setSede(sede);
+
+        Cliente cliente = new Cliente("Pedro", "654321", 123456789, "Cra 10", "pedro@gmail.com");
+
+        assertTrue(admin.agregarClienteSede(cliente));
+
+        LOG.info("Finalizando prueba de agregar cliente");
+
+        try {
+            admin.agregarClienteSede(cliente);
+        } catch (IllegalArgumentException e) {
+            LOG.info(e.getMessage());
+        }
+        assertThrows(IllegalArgumentException.class, () -> admin.agregarClienteSede(cliente));
+    }
+
+    /**
+     * Test del administrador para eliminar un cliente
+     */
+    @Test
+    public void eliminarClienteAdministradorTest() throws ExcepcionSedeOcupada {
+        LOG.info("Iniciando prueba de agregar cliente");
+
+        // Crear concesionario, administrador y sede
+        Concesionario concesionario = new Concesionario("Tu Carro UQ");
+        Administrador admin = new Administrador("Juan", "123456", 987654321, "juanAdmin", "clave123",
+                TipoRol.ADMINISTRADOR, "Pregunta");
+        Sede sede = new Sede("Principal", "Cra 8 #28 sur", "Armenia", "6675a");
+
+        // Agregar administrador y sede al concesionario
+        concesionario.agregarAdministrador(admin);
+        concesionario.agregarSedes(sede);
+
+        // Asignar la sede al administrador
+        admin.setSede(sede);
+
+        // Crear un cliente
+        Cliente cliente = new Cliente("Pedro", "654321", 123456789, "Cra 10", "pedro@gmail.com");
+
+        // Agregar cliente a la sede a través del administrador
+        assertTrue(admin.agregarClienteSede(cliente));
+        assertTrue(admin.eliminarClienteSede("654321"));
+
+        LOG.info("Finalizando prueba de eliminar cliente");
+    }
+
+    /**
+     * Test del administrador para actualizar un cliente
+     */
+    @Test
+    public void actualizarClienteAdministradorTest() throws ExcepcionSedeOcupada {
+        LOG.info("Iniciando prueba de agregar cliente");
+
+        // Crear concesionario, administrador y sede
+        Concesionario concesionario = new Concesionario("Tu Carro UQ");
+        Administrador admin = new Administrador("Juan", "123456", 987654321, "juanAdmin", "clave123",
+                TipoRol.ADMINISTRADOR, "Pregunta");
+        Sede sede = new Sede("Principal", "Cra 8 #28 sur", "Armenia", "6675a");
+
+        // Agregar administrador y sede al concesionario
+        concesionario.agregarAdministrador(admin);
+        concesionario.agregarSedes(sede);
+
+        // Asignar la sede al administrador
+        admin.setSede(sede);
+
+        // Crear un cliente
+        Cliente cliente = new Cliente("Pedro", "654321", 123456789, "Cra 10", "pedro@gmail.com");
+        Cliente cliente1 = new Cliente("Pedro", "65", 123456789, "Cra 10", "pedro@gmail.com");
+
+        // Agregar cliente a la sede a través del administrador
+        admin.agregarClienteSede(cliente);
+        assertTrue(admin.actualizarClienteSede("654321", cliente1));
+
+        LOG.info("Finalizando prueba de actualizar cliente");
+    }
+
+    /**
+     * Test del administrador para agregar un vehiculo
+     */
+    @Test
+    public void agregarVehiculoAdministradorTest() throws ExcepcionSedeOcupada {
+        LOG.info("Iniciando prueba de agregar cliente");
+
+        // Crear concesionario, administrador y sede
+        Concesionario concesionario = new Concesionario("Tu Carro UQ");
+        Administrador admin = new Administrador("Juan", "123456", 987654321, "juanAdmin", "clave123",
+                TipoRol.ADMINISTRADOR, "Pregunta");
+        Sede sede = new Sede("Principal", "Cra 8 #28 sur", "Armenia", "6675a");
+
+        // Agregar administrador y sede al concesionario
+        concesionario.agregarAdministrador(admin);
+        concesionario.agregarSedes(sede);
+
+        // Asignar la sede al administrador
+        admin.setSede(sede);
+
+        Vehiculo vehiculo = new Moto(Tipo_Transmision.MANUAL, "Yamaha", true, null, 0, 0, 0, 0, null);
+
+        assertTrue(admin.agregarVehiculoSede(vehiculo));
+        LOG.info("Finalizando prueba de agregar vehiculo");
+    }
+
+    
 
 }

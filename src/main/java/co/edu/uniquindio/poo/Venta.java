@@ -7,11 +7,11 @@ public class Venta extends Transaccion {
 
     private double total;
 
-    public Venta(int codigo, LocalDate fecha,Empleado empleado) {
-        super(codigo, fecha, empleado);
-        
-        this.total= calcularTotal();
+    public Venta(int codigo, LocalDate fechaEntregaVehiculo, Empleado empleado, Vehiculo vehiculo) {
+        super(codigo, fechaEntregaVehiculo, empleado, vehiculo);
+        this.total = calcularTotal();;
     }
+    
     public double getTotal() {
         return total;
     }
