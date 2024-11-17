@@ -10,6 +10,7 @@ public class Bus extends VehiculoCombustible {
     private boolean tieneABS;
     private int numeroEjes;
     private  int numeroSalidasEmergencia;
+    public static final double PrecioVenta = 1.600000;
 
     public Bus(Tipo_Transmision tipoTransmision, String marca, boolean esNuevo, String modelo, int numeroCambios,
             double maximaVelocidad, int cilindraje, double precioDiaAlquiler, Tipo_Combustible tipo_Combustible, int numeroPasajeros,
