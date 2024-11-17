@@ -1,7 +1,6 @@
 package co.edu.uniquindio.poo;
 
 import java.time.LocalDate;
-import java.util.LinkedList;
 import java.time.temporal.ChronoUnit;
 
 
@@ -12,9 +11,8 @@ public class Alquiler extends Transaccion{
     private LocalDate FechaDevolucionVehiculo;
 
 
-    public Alquiler(int codigo, LocalDate fechaEntrega, int diasAlquiler,  LocalDate FechaDevolucionVehiculo) {
-        super(codigo, fechaEntrega);
-
+    public Alquiler(int codigo, LocalDate fechaEntrega,Empleado empleado, Vehiculo vehiculo, int diasAlquiler,  LocalDate FechaDevolucionVehiculo) {
+        super(codigo, fechaEntrega, empleado, vehiculo);
         this.diasAlquiler = diasAlquiler;
         this.total=calcularTotal();
     }
@@ -36,28 +34,19 @@ public class Alquiler extends Transaccion{
     public void setFechaDevolucionVehiculo(LocalDate fechaDevolucionVehiculo) {
         FechaDevolucionVehiculo = fechaDevolucionVehiculo;
     }
-    /**
-     * Metodo para calcular el costo del alquiler
-     * @param vehiculo
-     * @return
-     */
-    public double calcularCostoAlquiler(Vehiculo vehiculo) {
-        // Convertir fechas a número de días (LoacalDate a int)
-        long diasAlquiler = ChronoUnit.DAYS.between(fechaEntregaVehiculo, FechaDevolucionVehiculo);
-        if (diasAlquiler <= 0) {
-            throw new IllegalArgumentException("La fecha de inicio debe ser anterior a la fecha de fin.");
-        }
-        // Calcular el costo total
-        return vehiculo.getPrecioDiaAlquiler() * diasAlquiler;
-    }
+    
     /**
      * Implementacion del metodo calculartotal para calcular el valor total del alquiler
      */
     @Override
     public double calcularTotal() {
-        // TODO Auto-generated method stub
-        return 0;
+        long diasAlquiler = ChronoUnit.DAYS.between(fechaEntregaVehiculo, FechaDevolucionVehiculo);
+        if (diasAlquiler <= 0) {
+            throw new IllegalArgumentException("La fecha de inicio debe ser anterior a la fecha de fin.");
+        }
+        return vehiculo.getPrecioDiaAlquiler() * diasAlquiler;
     }
+
     @Override
     public String toString() {
         return "Alquiler: diasAlquiler=" + diasAlquiler + ", " + super.toString() + ", total="

@@ -1,7 +1,5 @@
 package co.edu.uniquindio.poo;
 
-import java.time.LocalDate;
-
 public class Vehiculo {
     protected Tipo_Transmision tipoTransmision;
     protected String marca;
