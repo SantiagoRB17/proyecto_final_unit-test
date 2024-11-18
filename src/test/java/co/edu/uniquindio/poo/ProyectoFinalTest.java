@@ -11,8 +11,6 @@ import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-
-
 import java.util.logging.Logger;
 
 import org.junit.jupiter.api.Test;
@@ -34,7 +32,7 @@ public class ProyectoFinalTest {
         Concesionario concesionario = new Concesionario("Tu Carro UQ");
         Sede sede = new Sede("principal", "norte", "armenia", "123");
         Administrador administrador1 = new Administrador("Santiago Bernal", "1092457", 123456, "Santiagoob", "457890N",
-                TipoRol.ADMINISTRADOR, "Lucas");
+                TipoRol.ADMINISTRADOR, "Lucas", "santiago.ramirezb1@uniquindio.edu.co");
 
         LOG.info(concesionario.toString());
 
@@ -92,9 +90,9 @@ public class ProyectoFinalTest {
 
         Concesionario concesionario = new Concesionario("Tu Carro UQ");
         Administrador administrador1 = new Administrador("Santiago Bernal", "1092457", 123456, "Santiagoob", "457890N",
-                TipoRol.ADMINISTRADOR, "Lucas");
+                TipoRol.ADMINISTRADOR, "Lucas", "santiago.ramirezb1@uniquindio.edu.co");
         Administrador administrador2 = new Administrador("Veronica Mendoza", "123456", 987654, "VeroM", "897654X",
-                TipoRol.ADMINISTRADOR, "Miguel");
+                TipoRol.ADMINISTRADOR, "Miguel", "VeroMemDoza@gmail.com");
         Sede sede = new Sede("Sede Principal", "Cra 24#35-23", "Armenia", "6757a");
 
         concesionario.agregarAdministrador(administrador1);
@@ -124,9 +122,9 @@ public class ProyectoFinalTest {
 
         Concesionario concesionario = new Concesionario("Tu Carro UQ");
         Administrador administrador1 = new Administrador("Santiago Bernal", "1092457", 123456, "Santiagoob", "457890N",
-                TipoRol.ADMINISTRADOR, "Lucas");
+                TipoRol.ADMINISTRADOR, "Lucas", "santiago.ramirezb1@uniquindio.edu.co");
         Administrador administrador2 = new Administrador("Veronica Mendoza", "123456", 987654, "VeroM", "897654X",
-                TipoRol.ADMINISTRADOR, "Miguel");
+                TipoRol.ADMINISTRADOR, "Miguel", "VeroMemDoza@gmail.com");
         Sede sede = new Sede("Sede Principal", "Cra 24#35-23", "Armenia", "6757a");
 
         concesionario.agregarAdministrador(administrador1);
@@ -156,9 +154,9 @@ public class ProyectoFinalTest {
 
         Concesionario concesionario = new Concesionario("Tu Carro UQ");
         Administrador administrador1 = new Administrador("Santiago Bernal", "1092457", 123456, "Santiagoob", "457890N",
-                TipoRol.ADMINISTRADOR, "Lucas");
+                TipoRol.ADMINISTRADOR, "Lucas", "santiago.ramirezb1@uniquindio.edu.co");
         Administrador administrador2 = new Administrador("Veronica Mendoza", "123456", 987654, "VeroM", "897654X",
-                TipoRol.ADMINISTRADOR, "Miguel");
+                TipoRol.ADMINISTRADOR, "Miguel", "VeroMemDoza@gmail.com");
         Sede sede = new Sede("Sede Principal", "Cra 24#35-23", "Armenia", "6757a");
 
         concesionario.agregarAdministrador(administrador1);
@@ -176,15 +174,19 @@ public class ProyectoFinalTest {
         assertThrows(IllegalArgumentException.class, () -> concesionario.cambiarAdministradorSede(null, sede));
         LOG.info("Finalizando test");
     }
+
     @Test
-    public void  buscarTransaccionesPorRangoTest(){
+    public void buscarTransaccionesPorRangoTest() {
+
         Concesionario concesionario = new Concesionario("Tu Carro UQ");
         Administrador administrador1 = new Administrador("Santiago Bernal", "1092457", 123456, "Santiagoob", "457890N",
-                TipoRol.ADMINISTRADOR, "Lucas");
+                TipoRol.ADMINISTRADOR, "Lucas", "santiago.ramirezb1@uniquindio.edu.co");
         Sede sede = new Sede("Sede Principal", "Cra 24#35-23", "Armenia", "6757a");
-        Empleado empleado1 = new Empleado("Andres", "1094646", 321456, "AndreZX", "uidadus", TipoRol.EMPLEADO, 1001, true, sede);
-        Empleado empleado2 = new Empleado("Nicolas", "10394646", 32145656, "NicoMN", "NICOO", TipoRol.EMPLEADO, 1002, true, sede);
-        Empleado empleado3 = new Empleado("Fabio", "109464634", 32641456, "Fab", "reest", TipoRol.EMPLEADO, 1003, true, sede);
+        Empleado empleado1 = new Empleado("Andres", "1094646", 321456, "AndreZX", "uidadus", TipoRol.EMPLEADO, 1001,
+                true);
+        Empleado empleado2 = new Empleado("Nicolas", "10394646", 32145656, "NicoMN", "NICOO", TipoRol.EMPLEADO, 1002,
+                true);
+        Empleado empleado3 = new Empleado("Fabio", "109464634", 32641456, "Fab", "reest", TipoRol.EMPLEADO, 1003, true);
         Cliente cliente1 = new Cliente("Marta", "8972838", 321187394, "Cra 22", "Marta@gmail.com");
         Cliente cliente2 = new Cliente("Sonia", "11972838", 327394, "Cra 16", "Sonia@gmail.com");
         Cliente cliente3 = new Cliente("Pedro", "11083", 34563, "Cra 89", "Pedro@gmail.com");
@@ -200,40 +202,80 @@ public class ProyectoFinalTest {
         empleado2.agregarClienteSede(cliente2);
         empleado3.agregarClienteSede(cliente3);
         empleado2.agregarClienteSede(cliente4);
-        
+
         LOG.info(sede.toString());
 
     }
 
-    
+    @Test
+    public void verificarRespuestaPalabraSeguridadTest() {
+        LOG.info("Iniciado test");
+        Concesionario concesionario = new Concesionario("Tu Carro UQ");
+        Administrador administrador1 = new Administrador("Santiago Bernal", "1092457", 123456, "Santiagoob", "457890N",
+                TipoRol.ADMINISTRADOR, "Lucas", "santiago.ramirezb1@uniquindio.edu.co");
+        Sede sede = new Sede("Sede Principal", "Cra 24#35-23", "Armenia", "6757a");
+        concesionario.agregarAdministrador(administrador1);
+        concesionario.agregarSedes(sede);
+        sede.setAdministrador(administrador1);
+        administrador1.setSede(sede);
+
+        try {
+            administrador1.verificarRespuestaPalabraSeguridad(null);
+        } catch (Exception e) {
+            LOG.info(e.getMessage());
+        }
+
+        assertThrows(IllegalArgumentException.class, () -> administrador1.verificarRespuestaPalabraSeguridad(null));
+        LOG.info("Finalizando test");
+    }
+
+    @Test
+    public void recuperarContraseñaAdministradorTest() {
+        Concesionario concesionario = new Concesionario("Tu Carro UQ");
+        Administrador administrador1 = new Administrador("Santiago Bernal", "1092457", 123456, "Santiagoob", "457890N",
+                TipoRol.ADMINISTRADOR, "Lucas", "santiago.ramirezb1@uniquindio.edu.co");
+        Sede sede = new Sede("Sede Principal", "Cra 24#35-23", "Armenia", "6757a");
+        concesionario.agregarAdministrador(administrador1);
+        concesionario.agregarSedes(sede);
+        sede.setAdministrador(administrador1);
+        administrador1.setSede(sede);
+        LOG.info(administrador1.toString());
+
+        assertEquals("Hola administrador tu contraseña es: " + administrador1.getClave(),
+                sede.recuperarContraseñaAdministrador("Lucas", "6757a"));
+        LOG.info(sede.recuperarContraseñaAdministrador("Lucas", "6757a"));
+    }
 
     /**
      * Test para el método calcularTotal y la excepción PrecioVehiculoVacioException
      */
     @Test
-public void testCalcularTotal() throws PrecioVehiculoVacioException {
-    // Vehículo válido
-    Vehiculo vehiculoValido = new Vehiculo(Tipo_Transmision.AUTOMATICA, "Toyota", true, "Corolla", 6, 180.0, 1600, 150.0, 220000.0);
-    vehiculoValido.setPrecioVenta(50000); // Asegúrate de que el precio sea adecuado
+    public void testCalcularTotal() throws PrecioVehiculoVacioException {
+        // Vehículo válido
+        Vehiculo vehiculoValido = new Vehiculo(1001, Tipo_Transmision.AUTOMATICA, "Toyota", true, "Corolla", 6, 180.0, 1600,
+                150.0, 220000.0);
+        vehiculoValido.setPrecioVenta(50000); // Asegúrate de que el precio sea adecuado
 
-    // Vehículo inválido
-    Vehiculo vehiculoInvalido = new Vehiculo(Tipo_Transmision.AUTOMATICA, "Ford", true, "1232wds", 3, 100, 467, 3420, 2000);
-    vehiculoInvalido.setPrecioVenta(0); // Precio inválido
+        // Vehículo inválido
+        Vehiculo vehiculoInvalido = new Vehiculo(2001, Tipo_Transmision.AUTOMATICA, "Ford", true, "1232wds", 3, 100, 467,
+                3420, 2000);
+        vehiculoInvalido.setPrecioVenta(0); // Precio inválido
 
-    // Empleado
-    Empleado empleado = new Empleado("Veronica", "456712", 764321, "safs", "crack", TipoRol.EMPLEADO, 1, true);
+        // Empleado
+        Empleado empleado = new Empleado("Veronica", "456712", 764321, "safs", "crack", TipoRol.EMPLEADO, 1, true);
 
-    // Creación de ventas
-    Venta ventaValida = new Venta(1, null, empleado, vehiculoValido); // Vehículo válido
-    Venta ventaInvalida = new Venta(1, null, empleado, vehiculoInvalido); // Vehículo inválido
+        // Creación de ventas
+        Venta ventaValida = new Venta(1, null, empleado, vehiculoValido); // Vehículo válido
+        Venta ventaInvalida = new Venta(1, null, empleado, vehiculoInvalido); // Vehículo inválido
 
-    // Caso válido: no debe lanzar excepción
-    assertDoesNotThrow(() -> {
-        double total = ventaValida.calcularTotal();
-        assertEquals(50000, total);
-    });
+        // Caso válido: no debe lanzar excepción
+        assertDoesNotThrow(() -> {
+            double total = ventaValida.calcularTotal();
+            assertEquals(50000, total);
+        });
 
-    // Caso inválido: debe lanzar la excepción
-    assertThrows(PrecioVehiculoVacioException.class, () -> ventaInvalida.calcularTotal());
+        // Caso inválido: debe lanzar la excepción
+        assertThrows(PrecioVehiculoVacioException.class, () -> ventaInvalida.calcularTotal());
+    }
+
 }
- }

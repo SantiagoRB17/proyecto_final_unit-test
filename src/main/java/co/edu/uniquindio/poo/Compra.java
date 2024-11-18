@@ -4,9 +4,8 @@ import java.time.LocalDate;
 
 public class Compra extends Transaccion {
     /**
- * Atributos de la clase Compra
- */
-    private LinkedList<DetalleCompra> detalleCompras;
+     * Atributos de la clase Compra
+     */
     private double total;
     private boolean revisonTecnica;
 
@@ -42,6 +41,7 @@ public class Compra extends Transaccion {
     public void setRevisonTecnica(boolean revisonTecnica) {
         this.revisonTecnica = revisonTecnica;
     }
+
     /**
      * Implementacion del metodo calculartotal para calcular el valor total de la
      *
