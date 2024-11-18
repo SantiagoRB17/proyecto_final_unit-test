@@ -1,6 +1,7 @@
 package co.edu.uniquindio.poo;
 
 public class Vehiculo {
+    protected int codigoIdentificador;
     protected Tipo_Transmision tipoTransmision;
     protected String marca;
     protected boolean esNuevo; 
@@ -9,9 +10,11 @@ public class Vehiculo {
     protected double maximaVelocidad;
     protected int cilindraje;
     private double precioDiaAlquiler;
+    protected boolean revisionTecnica;
 
-    public Vehiculo(Tipo_Transmision tipoTransmision, String marca, boolean esNuevo, String modelo, int numeroCambios,
+    public Vehiculo(int codigoIdentificador, Tipo_Transmision tipoTransmision, String marca, boolean esNuevo, String modelo, int numeroCambios,
             double maximaVelocidad, int cilindraje, double precioDiaAlquiler) {
+        this.codigoIdentificador=codigoIdentificador;
         this.tipoTransmision = tipoTransmision;
         this.marca = marca;
         this.esNuevo = esNuevo;
@@ -20,6 +23,16 @@ public class Vehiculo {
         this.maximaVelocidad = maximaVelocidad;
         this.cilindraje = cilindraje;
         this. precioDiaAlquiler = precioDiaAlquiler;
+        this.revisionTecnica=false;
+    }
+
+    public int getCodigoIdentificador() {
+        return codigoIdentificador;
+    }
+
+
+    public void setCodigoIdentificador(int codigoIdentificador) {
+        this.codigoIdentificador = codigoIdentificador;
     }
     
     public Tipo_Transmision getTipoTransmision() {
@@ -72,12 +85,19 @@ public class Vehiculo {
         this.precioDiaAlquiler = precioDiaAlquiler;
     }
 
+    public boolean isRevisionTecnica() {
+        return revisionTecnica;
+    }
+
+    public void setRevisionTecnica(boolean revisionTecnica) {
+        this.revisionTecnica = revisionTecnica;
+    }
+
     @Override
     public String toString() {
-        return "Vehiculo [tipoTransmision=" + tipoTransmision + ", marca=" + marca + ", esNuevo=" + esNuevo
+        return "Vehiculo: codigo=" + codigoIdentificador +"tipoTransmision=" + tipoTransmision + ", marca=" + marca + ", esNuevo=" + esNuevo
                 + ", modelo=" + modelo + ", numeroCambios=" + numeroCambios + ", maximaVelocidad=" + maximaVelocidad
-                + ", cilindraje=" + cilindraje + ", precioDiaAlquiler=" + precioDiaAlquiler + "]";
+                + ", cilindraje=" + cilindraje + ", precioDiaAlquiler=" + precioDiaAlquiler + ", Revision= " + (revisionTecnica ? "Aprobada" : "No Aprobada");
     }
-    
-    
+
 }
