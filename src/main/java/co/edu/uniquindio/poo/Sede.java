@@ -371,4 +371,20 @@ public class Sede {
         }
         return centinela;
     }
+
+    public boolean verificarCodigoSede(String respuestaCodigoSeguridadSede){
+        if(codigoSeguridad.equals(respuestaCodigoSeguridadSede)){
+            return true;
+        }else{
+            throw new IllegalArgumentException("Codigo de sede incorrecto");
+        }
+    }
+    public String recuperarContraseñaAdministrador(String respuestaPalabra, String respuestaCodigoSeguridadSede){
+        if (administrador.verificarRespuestaPalabraSeguridad(respuestaPalabra) && verificarCodigoSede(respuestaCodigoSeguridadSede)) {
+                String contraseña="Hola administrador tu contraseña es: " + administrador.getClave();
+                return contraseña;
+        }else{
+            throw new IllegalArgumentException("Palabra de seguridad o Codigo de sede incorrectos");
+        }
+    }
 }

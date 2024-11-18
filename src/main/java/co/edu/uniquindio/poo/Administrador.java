@@ -1,35 +1,47 @@
 package co.edu.uniquindio.poo;
 
-public class Administrador extends Usuario implements IGestionEmpleado, IGestionAdministrador{
+public class Administrador extends Usuario implements IGestionEmpleado, IGestionAdministrador {
 /**
  * Atributos de la clase administrador
  */
-    private String preguntaSeguridad;
+    private String palabraSeguridad;
     private Sede sede;
-
-    public Administrador(String nombre, String cedula, long telefono, String usuario, String clave, TipoRol rol, String preguntaSeguridad){
+    private String correo;
+    public Administrador(String nombre, String cedula, long telefono, String usuario, String clave, TipoRol rol,
+            String palabraSeguridad, String correo) {
         super(nombre, cedula, telefono, usuario, clave, rol);
-        this.preguntaSeguridad = preguntaSeguridad;
+        this.palabraSeguridad = palabraSeguridad;
         this.sede = null;
-   
+        this.correo=correo;
     }
 
     public String getPreguntaSeguridad() {
-        return preguntaSeguridad;
+        return palabraSeguridad;
     }
 
-    public void setPreguntaSeguridad(String preguntaSeguridad) {
-        this.preguntaSeguridad = preguntaSeguridad;
-    }
-
-    @Override
-    public String toString() {
-        return "Administrador:" + super.toString() + " preguntaSeguridad= " + preguntaSeguridad  ;
+    public void setPreguntaSeguridad(String palabraSeguridad) {
+        this.palabraSeguridad = palabraSeguridad;
     }
 
     @Override
     public boolean agregarEmpleadoSede(Empleado empleado) {
         return sede.agregarEmpleado(empleado);
+    }
+    
+    public String getPalabraSeguridad() {
+        return palabraSeguridad;
+    }
+
+    public void setPalabraSeguridad(String palabraSeguridad) {
+        this.palabraSeguridad = palabraSeguridad;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
     }
 
     @Override
@@ -73,13 +85,28 @@ public class Administrador extends Usuario implements IGestionEmpleado, IGestion
         return sede.agregarVehiculo(vehiculo);
     }
 
-
     public Sede getSede() {
         return sede;
     }
 
-
     public void setSede(Sede sede) {
         this.sede = sede;
+    }
+
+    public boolean verificarRespuestaPalabraSeguridad(String respuestapalabra) {
+        if (respuestapalabra == null || palabraSeguridad == null) {
+            throw new IllegalArgumentException("La palabra de seguridad no puede ser nula");
+        }
+        if(respuestapalabra.equals(palabraSeguridad)){
+            return true;
+        }else{
+            throw new IllegalArgumentException("Palabra incorrecta");
+        }
+    }
+
+
+    @Override
+    public String toString() {
+        return "Administrador:" + super.toString() + " palabraSeguridad= " + palabraSeguridad+ ", correo=" + correo;
     }
 }
