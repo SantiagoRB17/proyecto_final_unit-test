@@ -16,7 +16,6 @@ public class Compra extends Transaccion {
      * @param fechaEntregaVehiculo fecha de la compra
      * @param empleado             empleado asignado
      * @param vehiculo             vehiculo comprado
-     * @param revisonTecnica       determina si el vehiculo
      * @throws PrecioVehiculoVacioException
      */
     public Compra(int codigo, LocalDate fechaEntregaVehiculo, Empleado empleado, Vehiculo vehiculo) throws PrecioVehiculoVacioException {

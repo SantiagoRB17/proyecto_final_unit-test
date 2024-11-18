@@ -7,7 +7,7 @@ public class Concesionario {
  * Atributos de la clase Concesionario
  */
     private String nombre;
-    //private final String contrasena = "22N35";
+    private static final String contrasena = "22N35";
     private LinkedList<Sede> sedes;
     private LinkedList<Administrador> administradores;
 
