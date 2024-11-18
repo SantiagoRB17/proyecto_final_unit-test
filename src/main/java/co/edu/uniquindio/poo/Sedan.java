@@ -2,7 +2,9 @@ package co.edu.uniquindio.poo;
 
 
 public class Sedan extends VehiculoElectrico {
-
+/**
+ * Atributos de la clase Sedan
+ */
 
     private int numeroPasajeros;
     private int numeroPuertas;
@@ -15,15 +17,14 @@ public class Sedan extends VehiculoElectrico {
     private boolean tienesensoresDeColision;
     private boolean tieneSensorDeTraficoCruzado;
     private boolean tieneAsistenteDePermanenciaEnElCarril;
-    public static final double PrecioVenta = 2.700000;
 
 
     public Sedan(int codigoIdentificador, Tipo_Transmision tipoTransmision, String marca, boolean esNuevo, String modelo, int numeroCambios,
-            double maximaVelocidad, int cilindraje,double precioDiaAlquiler, int autonomia, double tiempoDeCarga, int numeroPasajeros,
+            double maximaVelocidad, int cilindraje,double precioDiaAlquiler,double precioVenta, int autonomia, double tiempoDeCarga, int numeroPasajeros,
             int numeroPuertas, double capacidadMaletero, boolean tieneAireAcondicionado, boolean tieneCamaraDeReversa,
             boolean tieneVelocidadCrucero, int numeroBolsasDeAire, boolean tieneABS, boolean tienesensoresDeColision,
             boolean tieneSensorDeTraficoCruzado, boolean tieneAsistenteDePermanenciaEnElCarril) {
-        super(codigoIdentificador, tipoTransmision, marca, esNuevo, modelo, numeroCambios, maximaVelocidad, cilindraje, precioDiaAlquiler, autonomia,
+        super(codigoIdentificador, tipoTransmision, marca, esNuevo, modelo, numeroCambios, maximaVelocidad, cilindraje, precioDiaAlquiler,  precioVenta,autonomia,
                 tiempoDeCarga);
         this.numeroPasajeros = numeroPasajeros;
         this.numeroPuertas = numeroPuertas;

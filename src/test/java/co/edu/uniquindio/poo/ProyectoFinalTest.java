@@ -7,8 +7,10 @@
  */
 package co.edu.uniquindio.poo;
 
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+
 
 
 import java.util.logging.Logger;
@@ -202,5 +204,36 @@ public class ProyectoFinalTest {
         LOG.info(sede.toString());
 
     }
- 
+
+    
+
+    /**
+     * Test para el método calcularTotal y la excepción PrecioVehiculoVacioException
+     */
+    @Test
+public void testCalcularTotal() throws PrecioVehiculoVacioException {
+    // Vehículo válido
+    Vehiculo vehiculoValido = new Vehiculo(Tipo_Transmision.AUTOMATICA, "Toyota", true, "Corolla", 6, 180.0, 1600, 150.0, 220000.0);
+    vehiculoValido.setPrecioVenta(50000); // Asegúrate de que el precio sea adecuado
+
+    // Vehículo inválido
+    Vehiculo vehiculoInvalido = new Vehiculo(Tipo_Transmision.AUTOMATICA, "Ford", true, "1232wds", 3, 100, 467, 3420, 2000);
+    vehiculoInvalido.setPrecioVenta(0); // Precio inválido
+
+    // Empleado
+    Empleado empleado = new Empleado("Veronica", "456712", 764321, "safs", "crack", TipoRol.EMPLEADO, 1, true);
+
+    // Creación de ventas
+    Venta ventaValida = new Venta(1, null, empleado, vehiculoValido); // Vehículo válido
+    Venta ventaInvalida = new Venta(1, null, empleado, vehiculoInvalido); // Vehículo inválido
+
+    // Caso válido: no debe lanzar excepción
+    assertDoesNotThrow(() -> {
+        double total = ventaValida.calcularTotal();
+        assertEquals(50000, total);
+    });
+
+    // Caso inválido: debe lanzar la excepción
+    assertThrows(PrecioVehiculoVacioException.class, () -> ventaInvalida.calcularTotal());
 }
+ }

@@ -1,7 +1,9 @@
 package co.edu.uniquindio.poo;
 
 public class Administrador extends Usuario implements IGestionEmpleado, IGestionAdministrador{
-
+/**
+ * Atributos de la clase administrador
+ */
     private String preguntaSeguridad;
     private Sede sede;
 

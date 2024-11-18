@@ -3,21 +3,22 @@ package co.edu.uniquindio.poo;
 
 public class Camion extends VehiculoElectrico {
 
-
+/**
+ * Atributos de la clase camion
+ */
     private double capacidadCarga; 
     private boolean tieneAireAcondicionado;
     private boolean tieneFrenosAire;
     private boolean tieneABS;
     private int numeroEjes;
     private String tipoCamion;
-    public static final double PrecioVenta = 2.600000;
 
 
     public Camion(int codigoIdentificador, Tipo_Transmision tipoTransmision, String marca, boolean esNuevo, String modelo, int numeroCambios,
-            double maximaVelocidad, int cilindraje, double precioDiaAlquiler, int autonomia, double tiempoDeCarga, double capacidadCarga,
+            double maximaVelocidad, int cilindraje, double precioDiaAlquiler,double precioVenta, int autonomia, double tiempoDeCarga, double capacidadCarga,
             boolean tieneAireAcondicionado, boolean tieneFrenosAire, boolean tieneABS, int numeroEjes,
             String tipoCamion) {
-        super(codigoIdentificador, tipoTransmision, marca, esNuevo, modelo, numeroCambios, maximaVelocidad, cilindraje, precioDiaAlquiler, autonomia,
+        super(codigoIdentificador, tipoTransmision, marca, esNuevo, modelo, numeroCambios, maximaVelocidad, cilindraje, precioDiaAlquiler,  precioVenta, autonomia,
                 tiempoDeCarga);
         this.capacidadCarga = capacidadCarga;
         this.tieneAireAcondicionado = tieneAireAcondicionado;

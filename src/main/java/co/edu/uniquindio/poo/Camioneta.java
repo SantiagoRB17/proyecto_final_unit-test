@@ -1,7 +1,9 @@
 package co.edu.uniquindio.poo;
 
 public class Camioneta extends VehiculoHibrido {
-
+/**
+ * Atributos de la clase camioneta
+ */
     private int numeroPasajeros;
     private int numeroPuertas;
     private boolean tieneAireAcondicionado;
@@ -13,14 +15,15 @@ public class Camioneta extends VehiculoHibrido {
     private boolean tieneSensorDeTraficoCruzado;
     private boolean tieneAsistenteDePermanenciaEnElCarril;
     private boolean es4x4;
-    public static final double PrecioVenta = 3.600000;
+
+
     public Camioneta(int codigoIdentificador, Tipo_Transmision tipoTransmision, String marca, boolean esNuevo, String modelo, int numeroCambios,
-            double maximaVelocidad, int cilindraje, double precioDiaAlquiler, Tipo_Combustible tipoCombustibleHibrido,
+            double maximaVelocidad, int cilindraje, double precioDiaAlquiler,double precioVenta, Tipo_Combustible tipoCombustibleHibrido,
             int autonomia, boolean esEnchufable, int numeroPasajeros, int numeroPuertas, boolean tieneAireAcondicionado,
             boolean tieneCamaraDeReversa, boolean tieneVelocidadCrucero, int numeroBolsasDeAire, boolean tieneABS,
             boolean tienesensoresDeColision, boolean tieneSensorDeTraficoCruzado,
             boolean tieneAsistenteDePermanenciaEnElCarril, boolean es4x4) {
-        super(codigoIdentificador, tipoTransmision, marca, esNuevo, modelo, numeroCambios, maximaVelocidad, cilindraje, precioDiaAlquiler,
+        super(codigoIdentificador, tipoTransmision, marca, esNuevo, modelo, numeroCambios, maximaVelocidad, cilindraje, precioDiaAlquiler, precioVenta,
                 tipoCombustibleHibrido, autonomia, esEnchufable);
         this.numeroPasajeros = numeroPasajeros;
         this.numeroPuertas = numeroPuertas;
@@ -35,12 +38,12 @@ public class Camioneta extends VehiculoHibrido {
         this.es4x4 = es4x4;
     }
     public Camioneta(int codigoIdentificador, Tipo_Transmision tipoTransmision, String marca, boolean esNuevo, String modelo, int numeroCambios,
-            double maximaVelocidad, int cilindraje, double precioDiaAlquiler, Tipo_Combustible tipoCombustibleHibrido,
+            double maximaVelocidad, int cilindraje, double precioDiaAlquiler,double precioVenta, Tipo_Combustible tipoCombustibleHibrido,
             int autonomia, boolean esEnchufable, boolean esHibridoLigero, int numeroPasajeros, int numeroPuertas,
             boolean tieneAireAcondicionado, boolean tieneCamaraDeReversa, boolean tieneVelocidadCrucero,
             int numeroBolsasDeAire, boolean tieneABS, boolean tienesensoresDeColision,
             boolean tieneSensorDeTraficoCruzado, boolean tieneAsistenteDePermanenciaEnElCarril, boolean es4x4) {
-        super(codigoIdentificador, tipoTransmision, marca, esNuevo, modelo, numeroCambios, maximaVelocidad, cilindraje, precioDiaAlquiler,
+        super(codigoIdentificador, tipoTransmision, marca, esNuevo, modelo, numeroCambios, maximaVelocidad, cilindraje, precioDiaAlquiler, precioVenta,
                 tipoCombustibleHibrido, autonomia, esEnchufable, esHibridoLigero);
         this.numeroPasajeros = numeroPasajeros;
         this.numeroPuertas = numeroPuertas;
@@ -120,8 +123,6 @@ public class Camioneta extends VehiculoHibrido {
     public void setEs4x4(boolean es4x4) {
         this.es4x4 = es4x4;
     }
-    public static double getPrecioventa() {
-        return PrecioVenta;
-    }
+
 
 }

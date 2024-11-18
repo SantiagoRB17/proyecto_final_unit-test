@@ -2,7 +2,11 @@ package co.edu.uniquindio.poo;
 
 import java.time.LocalDate;
 
-public class Compra extends Transaccion  {
+public class Compra extends Transaccion {
+    /**
+ * Atributos de la clase Compra
+ */
+    private LinkedList<DetalleCompra> detalleCompras;
     private double total;
     private boolean revisonTecnica;
 

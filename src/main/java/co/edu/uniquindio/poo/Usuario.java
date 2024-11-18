@@ -2,7 +2,9 @@ package co.edu.uniquindio.poo;
 
 
 public class Usuario extends Persona {
-   
+   /**
+ * Atributos de la clase Usuario
+ */
     private String usuario;
     private String clave;
     protected TipoRol rol;

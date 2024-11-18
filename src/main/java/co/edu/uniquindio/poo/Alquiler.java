@@ -5,7 +5,9 @@ import java.time.temporal.ChronoUnit;
 
 
 public class Alquiler extends Transaccion{
-
+/**
+ * Atributos de la clase alquiler
+ */
     private int diasAlquiler;
     private double total;
     private LocalDate FechaDevolucionVehiculo;

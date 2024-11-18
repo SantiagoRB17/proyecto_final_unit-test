@@ -4,7 +4,9 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-
+/**
+ * Atributos de la clase Sede
+ */
 public class Sede {
     private String nombre;
     private String direccion;

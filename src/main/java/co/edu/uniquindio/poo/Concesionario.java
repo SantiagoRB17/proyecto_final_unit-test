@@ -3,6 +3,9 @@ package co.edu.uniquindio.poo;
 import java.util.LinkedList;
 
 public class Concesionario {
+    /**
+ * Atributos de la clase Concesionario
+ */
     private String nombre;
     //private final String contrasena = "22N35";
     private LinkedList<Sede> sedes;

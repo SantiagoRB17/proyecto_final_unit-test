@@ -1,14 +1,16 @@
 package co.edu.uniquindio.poo;
 
 public class VehiculoElectrico extends Vehiculo{
-
+  /**
+ * Atributos de la clase VehiculoElectrico
+ */
     public int autonomia;
     public double tiempoDeCarga;
 
     
     public VehiculoElectrico(int codigoIdentificador, Tipo_Transmision tipoTransmision, String marca, boolean esNuevo, String modelo,
-            int numeroCambios, double maximaVelocidad, int cilindraje,double precioDiaAlquiler, int autonomia, double tiempoDeCarga) {
-        super(codigoIdentificador, tipoTransmision, marca, esNuevo, modelo, numeroCambios, maximaVelocidad, cilindraje,precioDiaAlquiler);
+            int numeroCambios, double maximaVelocidad, int cilindraje,double precioDiaAlquiler,double precioVenta, int autonomia, double tiempoDeCarga) {
+        super(codigoIdentificador, tipoTransmision, marca, esNuevo, modelo, numeroCambios, maximaVelocidad, cilindraje,precioDiaAlquiler,  precioVenta);
         this.autonomia = autonomia;
         this.tiempoDeCarga = tiempoDeCarga;
     }

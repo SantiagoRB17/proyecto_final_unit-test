@@ -2,6 +2,9 @@ package co.edu.uniquindio.poo;
 
 public class Vehiculo {
     protected int codigoIdentificador;
+    /**
+ * Atributos de la clase Vehiculo
+ */
     protected Tipo_Transmision tipoTransmision;
     protected String marca;
     protected boolean esNuevo; 
@@ -9,11 +12,13 @@ public class Vehiculo {
     protected int numeroCambios;
     protected double maximaVelocidad;
     protected int cilindraje;
-    private double precioDiaAlquiler;
+    protected double precioDiaAlquiler;
     protected boolean revisionTecnica;
+    protected double precioVenta;
+
 
     public Vehiculo(int codigoIdentificador, Tipo_Transmision tipoTransmision, String marca, boolean esNuevo, String modelo, int numeroCambios,
-            double maximaVelocidad, int cilindraje, double precioDiaAlquiler) {
+            double maximaVelocidad, int cilindraje, double precioDiaAlquiler, double precioVenta) {
         this.codigoIdentificador=codigoIdentificador;
         this.tipoTransmision = tipoTransmision;
         this.marca = marca;
@@ -33,6 +38,7 @@ public class Vehiculo {
 
     public void setCodigoIdentificador(int codigoIdentificador) {
         this.codigoIdentificador = codigoIdentificador;
+        this.precioVenta =  precioVenta;
     }
     
     public Tipo_Transmision getTipoTransmision() {
@@ -93,11 +99,23 @@ public class Vehiculo {
         this.revisionTecnica = revisionTecnica;
     }
 
+    public double getPrecioVenta() {
+        return precioVenta;
+    }
+
+    public void setPrecioVenta(double precioVenta) {
+        this.precioVenta = precioVenta;
+    }
+    
     @Override
     public String toString() {
         return "Vehiculo: codigo=" + codigoIdentificador +"tipoTransmision=" + tipoTransmision + ", marca=" + marca + ", esNuevo=" + esNuevo
                 + ", modelo=" + modelo + ", numeroCambios=" + numeroCambios + ", maximaVelocidad=" + maximaVelocidad
-                + ", cilindraje=" + cilindraje + ", precioDiaAlquiler=" + precioDiaAlquiler + ", Revision= " + (revisionTecnica ? "Aprobada" : "No Aprobada");
+                + ", cilindraje=" + cilindraje + ", precioDiaAlquiler=" + precioDiaAlquiler + ", precioVenta="
+                + precioVenta + ", Revision= " + (revisionTecnica ? "Aprobada" : "No Aprobada");
     }
+
+    
+
 
 }
