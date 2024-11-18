@@ -1,6 +1,9 @@
 package co.edu.uniquindio.poo;
 
 public class Persona {
+    /**
+ * Atributos de la clase Persona
+ */
     private String nombre;
     private String cedula;
     private long telefono;

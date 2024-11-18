@@ -3,7 +3,9 @@ package co.edu.uniquindio.poo;
 
 public class Van extends VehiculoElectrico {
 
-
+/**
+ * Atributos de la clase Van
+ */
     private int numeroPasajeros;
     private int numeroPuertas;
     private double capacidadMaletero;
@@ -11,14 +13,13 @@ public class Van extends VehiculoElectrico {
     private boolean tieneCamaraDeReversa;
     private int numeroBolsasDeAire;
     private boolean tieneABS;
-    public static final double PrecioVenta = 8.600000;
 
 
     public Van(Tipo_Transmision tipoTransmision, String marca, boolean esNuevo, String modelo, int numeroCambios,
-            double maximaVelocidad, int cilindraje,double precioDiaAlquiler, int autonomia, double tiempoDeCarga, int numeroPasajeros,
+            double maximaVelocidad, int cilindraje,double precioDiaAlquiler, double precioVenta, int autonomia, double tiempoDeCarga, int numeroPasajeros,
             int numeroPuertas, double capacidadMaletero, boolean tieneAireAcondicionado, boolean tieneCamaraDeReversa,
             int numeroBolsasDeAire, boolean tieneABS) {
-        super(tipoTransmision, marca, esNuevo, modelo, numeroCambios, maximaVelocidad, cilindraje, precioDiaAlquiler,autonomia,
+        super(tipoTransmision, marca, esNuevo, modelo, numeroCambios, maximaVelocidad, cilindraje, precioDiaAlquiler, precioVenta,autonomia,
                 tiempoDeCarga);
         this.numeroPasajeros = numeroPasajeros;
         this.numeroPuertas = numeroPuertas;

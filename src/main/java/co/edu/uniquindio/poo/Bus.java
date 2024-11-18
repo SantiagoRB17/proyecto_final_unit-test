@@ -1,6 +1,9 @@
 package co.edu.uniquindio.poo;
 
 public class Bus extends VehiculoCombustible {
+    /**
+ * Atributos de la clase bus
+ */
     private int numeroPasajeros;  
     private int numeroPuertas;
     private double capacidadMaletero; 
@@ -10,13 +13,13 @@ public class Bus extends VehiculoCombustible {
     private boolean tieneABS;
     private int numeroEjes;
     private  int numeroSalidasEmergencia;
-    public static final double PrecioVenta = 1.600000;
+
 
     public Bus(Tipo_Transmision tipoTransmision, String marca, boolean esNuevo, String modelo, int numeroCambios,
-            double maximaVelocidad, int cilindraje, double precioDiaAlquiler, Tipo_Combustible tipo_Combustible, int numeroPasajeros,
+            double maximaVelocidad, int cilindraje, double precioDiaAlquiler,double precioVenta, Tipo_Combustible tipo_Combustible, int numeroPasajeros,
             int numeroPuertas, double capacidadMaletero, boolean tieneAireAcondicionado, boolean tieneCamaraDeReversa,
             int numeroBolsasDeAire, boolean tieneABS, int numeroEjes, int numeroSalidasEmergencia) {
-        super(tipoTransmision, marca, esNuevo, modelo, numeroCambios, maximaVelocidad, cilindraje,precioDiaAlquiler, tipo_Combustible);
+        super(tipoTransmision, marca, esNuevo, modelo, numeroCambios, maximaVelocidad, cilindraje,precioDiaAlquiler, precioVenta, tipo_Combustible);
         this.numeroPasajeros = numeroPasajeros;
         this.numeroPuertas = numeroPuertas;
         this.capacidadMaletero = capacidadMaletero;

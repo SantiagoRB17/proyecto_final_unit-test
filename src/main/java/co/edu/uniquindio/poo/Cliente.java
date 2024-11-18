@@ -2,6 +2,9 @@ package co.edu.uniquindio.poo;
 
 
 public class Cliente extends Persona {
+    /**
+ * Atributos de la clase Cliente
+ */
     private String direccion;
     private String correo;
 

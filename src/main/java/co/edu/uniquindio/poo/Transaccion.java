@@ -3,6 +3,9 @@ package co.edu.uniquindio.poo;
 import java.time.LocalDate;
 
 public abstract class Transaccion {
+    /**
+ * Atributos de la clase Transaccion
+ */
     protected int codigo;
     protected LocalDate fechaEntregaVehiculo;
     protected Empleado empleado;
@@ -20,6 +23,9 @@ public abstract class Transaccion {
         this.codigo = codigo;
         this.fechaEntregaVehiculo = fechaEntregaVehiculo;
         this.empleado = empleado;
+        if (vehiculo == null) {
+            throw new IllegalArgumentException("El vehículo no puede ser null");
+        }
         this.vehiculo = vehiculo;
     }
 

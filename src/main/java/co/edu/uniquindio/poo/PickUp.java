@@ -3,7 +3,9 @@ package co.edu.uniquindio.poo;
 
 public class PickUp extends VehiculoHibrido{
 
-
+/**
+ * Atributos de la clase PickUp
+ */
     private int numeroPasajeros;
     private int numeroPuertas;
     private boolean tieneAireAcondicionado;
@@ -12,14 +14,13 @@ public class PickUp extends VehiculoHibrido{
     private boolean tieneABS;
     private boolean es4x4;
     private double capacidadCajaNegra;
-    public static final double PrecioVenta = 4.600000;
     
     public PickUp(Tipo_Transmision tipoTransmision, String marca, boolean esNuevo, String modelo, int numeroCambios,
-            double maximaVelocidad, int cilindraje,double precioDiaAlquiler, Tipo_Combustible tipoCombustibleHibrido, int autonomia,
+            double maximaVelocidad, int cilindraje,double precioDiaAlquiler,double precioVenta, Tipo_Combustible tipoCombustibleHibrido, int autonomia,
             boolean esEnchufable, int numeroPasajeros, int numeroPuertas, boolean tieneAireAcondicionado,
             boolean tieneCamaraDeReversa, int numeroBolsasDeAire, boolean tieneABS, boolean es4x4,
             double capacidadCajaNegra) {
-        super(tipoTransmision, marca, esNuevo, modelo, numeroCambios, maximaVelocidad, cilindraje, precioDiaAlquiler,
+        super(tipoTransmision, marca, esNuevo, modelo, numeroCambios, maximaVelocidad, cilindraje, precioDiaAlquiler, precioVenta,
                 tipoCombustibleHibrido, autonomia, esEnchufable);
         this.numeroPasajeros = numeroPasajeros;
         this.numeroPuertas = numeroPuertas;

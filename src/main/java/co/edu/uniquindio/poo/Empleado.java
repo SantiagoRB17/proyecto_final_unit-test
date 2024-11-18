@@ -1,17 +1,19 @@
 package co.edu.uniquindio.poo;
 
 public class Empleado extends Usuario implements IGestionEmpleado {
-    
+    /**
+ * Atributos de la clase empleado
+ */
     private int idEmpleado;
     private boolean estado;
     private Sede sede;
     
     public Empleado(String nombre, String cedula, long telefono, String usuario, String clave, TipoRol rol,
-            int idEmpleado, boolean estado, Sede sede) {
+            int idEmpleado, boolean estado) {
         super(nombre, cedula, telefono, usuario, clave, rol);
         this.idEmpleado = idEmpleado;
         this.estado = estado;
-        this.sede = sede;
+        this.sede = null;
     }
 
 

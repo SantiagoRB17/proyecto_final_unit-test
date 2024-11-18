@@ -4,6 +4,9 @@ import java.time.LocalDate;
 import java.util.LinkedList;
 
 public class Compra extends Transaccion {
+    /**
+ * Atributos de la clase Compra
+ */
     private LinkedList<DetalleCompra> detalleCompras;
     private double total;
     private boolean revisonTecnica;

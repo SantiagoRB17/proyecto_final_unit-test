@@ -1,6 +1,9 @@
 package co.edu.uniquindio.poo;
 
 public class Vehiculo {
+    /**
+ * Atributos de la clase Vehiculo
+ */
     protected Tipo_Transmision tipoTransmision;
     protected String marca;
     protected boolean esNuevo; 
@@ -8,10 +11,12 @@ public class Vehiculo {
     protected int numeroCambios;
     protected double maximaVelocidad;
     protected int cilindraje;
-    private double precioDiaAlquiler;
+    protected double precioDiaAlquiler;
+    protected double precioVenta;
+
 
     public Vehiculo(Tipo_Transmision tipoTransmision, String marca, boolean esNuevo, String modelo, int numeroCambios,
-            double maximaVelocidad, int cilindraje, double precioDiaAlquiler) {
+            double maximaVelocidad, int cilindraje, double precioDiaAlquiler, double precioVenta) {
         this.tipoTransmision = tipoTransmision;
         this.marca = marca;
         this.esNuevo = esNuevo;
@@ -20,6 +25,7 @@ public class Vehiculo {
         this.maximaVelocidad = maximaVelocidad;
         this.cilindraje = cilindraje;
         this. precioDiaAlquiler = precioDiaAlquiler;
+        this.precioVenta =  precioVenta;
     }
     
     public Tipo_Transmision getTipoTransmision() {
@@ -72,12 +78,24 @@ public class Vehiculo {
         this.precioDiaAlquiler = precioDiaAlquiler;
     }
 
+    public double getPrecioVenta() {
+        return precioVenta;
+    }
+
+    public void setPrecioVenta(double precioVenta) {
+        this.precioVenta = precioVenta;
+    }
+    
     @Override
     public String toString() {
         return "Vehiculo [tipoTransmision=" + tipoTransmision + ", marca=" + marca + ", esNuevo=" + esNuevo
                 + ", modelo=" + modelo + ", numeroCambios=" + numeroCambios + ", maximaVelocidad=" + maximaVelocidad
-                + ", cilindraje=" + cilindraje + ", precioDiaAlquiler=" + precioDiaAlquiler + "]";
+                + ", cilindraje=" + cilindraje + ", precioDiaAlquiler=" + precioDiaAlquiler + ", precioVenta="
+                + precioVenta + "]";
     }
+
+    
+
     
     
 }
