@@ -5,9 +5,9 @@ public class VehiculoCombustible extends Vehiculo {
     protected Tipo_Combustible tipo_Combustible;
 
 
-    public VehiculoCombustible(Tipo_Transmision tipoTransmision, String marca, boolean esNuevo, String modelo,
+    public VehiculoCombustible(int codigoIdentificador, Tipo_Transmision tipoTransmision, String marca, boolean esNuevo, String modelo,
             int numeroCambios, double maximaVelocidad, int cilindraje,double precioDiaAlquiler, Tipo_Combustible tipo_Combustible) {
-        super(tipoTransmision, marca, esNuevo, modelo, numeroCambios, maximaVelocidad, cilindraje, precioDiaAlquiler);
+        super(codigoIdentificador, tipoTransmision, marca, esNuevo, modelo, numeroCambios, maximaVelocidad, cilindraje, precioDiaAlquiler);
         this.tipo_Combustible = tipo_Combustible;
     }
 

@@ -6,9 +6,9 @@ public class VehiculoElectrico extends Vehiculo{
     public double tiempoDeCarga;
 
     
-    public VehiculoElectrico(Tipo_Transmision tipoTransmision, String marca, boolean esNuevo, String modelo,
+    public VehiculoElectrico(int codigoIdentificador, Tipo_Transmision tipoTransmision, String marca, boolean esNuevo, String modelo,
             int numeroCambios, double maximaVelocidad, int cilindraje,double precioDiaAlquiler, int autonomia, double tiempoDeCarga) {
-        super(tipoTransmision, marca, esNuevo, modelo, numeroCambios, maximaVelocidad, cilindraje,precioDiaAlquiler);
+        super(codigoIdentificador, tipoTransmision, marca, esNuevo, modelo, numeroCambios, maximaVelocidad, cilindraje,precioDiaAlquiler);
         this.autonomia = autonomia;
         this.tiempoDeCarga = tiempoDeCarga;
     }
