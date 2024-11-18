@@ -1,11 +1,13 @@
 package co.edu.uniquindio.poo;
 
+import java.util.LinkedList;
 public class Empleado extends Usuario implements IGestionEmpleado {
     /**
  * Atributos de la clase empleado
  */
     private int idEmpleado;
     private boolean estado;
+    private LinkedList<Vehiculo> vehiculos;
     private Sede sede;
     
     public Empleado(String nombre, String cedula, long telefono, String usuario, String clave, TipoRol rol,
@@ -13,6 +15,7 @@ public class Empleado extends Usuario implements IGestionEmpleado {
         super(nombre, cedula, telefono, usuario, clave, rol);
         this.idEmpleado = idEmpleado;
         this.estado = estado;
+        this.vehiculos= new LinkedList<>();
         this.sede = null;
     }
 
@@ -46,6 +49,19 @@ public class Empleado extends Usuario implements IGestionEmpleado {
         this.estado = estado;
     }
 
+    public void aprovarRevisionTecnica(int codigoIdentificador) {
+        boolean centinela = false;
+        for (Vehiculo vehiculo : vehiculos) {
+            if(vehiculo.getCodigoIdentificador()==codigoIdentificador){
+                vehiculo.setRevisionTecnica(true);
+                centinela=true;
+                break;
+            }
+        }
+        if(!centinela){
+            throw new IllegalArgumentException("El codigo es incorrecto o no existe el vehiculo");
+        }
+    }
 
     @Override
     public String toString() {

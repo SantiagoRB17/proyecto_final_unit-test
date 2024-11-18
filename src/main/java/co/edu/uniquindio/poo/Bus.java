@@ -15,11 +15,11 @@ public class Bus extends VehiculoCombustible {
     private  int numeroSalidasEmergencia;
 
 
-    public Bus(Tipo_Transmision tipoTransmision, String marca, boolean esNuevo, String modelo, int numeroCambios,
+    public Bus(int codigoIdentificador, Tipo_Transmision tipoTransmision, String marca, boolean esNuevo, String modelo, int numeroCambios,
             double maximaVelocidad, int cilindraje, double precioDiaAlquiler,double precioVenta, Tipo_Combustible tipo_Combustible, int numeroPasajeros,
             int numeroPuertas, double capacidadMaletero, boolean tieneAireAcondicionado, boolean tieneCamaraDeReversa,
             int numeroBolsasDeAire, boolean tieneABS, int numeroEjes, int numeroSalidasEmergencia) {
-        super(tipoTransmision, marca, esNuevo, modelo, numeroCambios, maximaVelocidad, cilindraje,precioDiaAlquiler, precioVenta, tipo_Combustible);
+        super(codigoIdentificador, tipoTransmision, marca, esNuevo, modelo, numeroCambios, maximaVelocidad, cilindraje,precioDiaAlquiler, precioVenta, tipo_Combustible);
         this.numeroPasajeros = numeroPasajeros;
         this.numeroPuertas = numeroPuertas;
         this.capacidadMaletero = capacidadMaletero;

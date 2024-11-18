@@ -14,11 +14,11 @@ public class Camion extends VehiculoElectrico {
     private String tipoCamion;
 
 
-    public Camion(Tipo_Transmision tipoTransmision, String marca, boolean esNuevo, String modelo, int numeroCambios,
+    public Camion(int codigoIdentificador, Tipo_Transmision tipoTransmision, String marca, boolean esNuevo, String modelo, int numeroCambios,
             double maximaVelocidad, int cilindraje, double precioDiaAlquiler,double precioVenta, int autonomia, double tiempoDeCarga, double capacidadCarga,
             boolean tieneAireAcondicionado, boolean tieneFrenosAire, boolean tieneABS, int numeroEjes,
             String tipoCamion) {
-        super(tipoTransmision, marca, esNuevo, modelo, numeroCambios, maximaVelocidad, cilindraje, precioDiaAlquiler,  precioVenta, autonomia,
+        super(codigoIdentificador, tipoTransmision, marca, esNuevo, modelo, numeroCambios, maximaVelocidad, cilindraje, precioDiaAlquiler,  precioVenta, autonomia,
                 tiempoDeCarga);
         this.capacidadCarga = capacidadCarga;
         this.tieneAireAcondicionado = tieneAireAcondicionado;

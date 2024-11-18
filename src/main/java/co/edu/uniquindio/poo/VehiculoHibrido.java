@@ -10,19 +10,19 @@ public class VehiculoHibrido extends Vehiculo {
     protected boolean esHibridoLigero;
     
 
-    public VehiculoHibrido(Tipo_Transmision tipoTransmision, String marca, boolean esNuevo, String modelo,
+    public VehiculoHibrido(int codigoIdentificador,Tipo_Transmision tipoTransmision, String marca, boolean esNuevo, String modelo,
             int numeroCambios, double maximaVelocidad, int cilindraje,double precioDiaAlquiler, double precioVenta,Tipo_Combustible tipoCombustibleHibrido,
             int autonomia, boolean esEnchufable) {
-        super(tipoTransmision, marca, esNuevo, modelo, numeroCambios, maximaVelocidad, cilindraje,precioDiaAlquiler, precioVenta);
+        super(codigoIdentificador, tipoTransmision, marca, esNuevo, modelo, numeroCambios, maximaVelocidad, cilindraje,precioDiaAlquiler, precioVenta);
         this.tipoCombustibleHibrido = tipoCombustibleHibrido;
         this.autonomia = autonomia;
         this.esEnchufable = esEnchufable;
     }
 
-    public VehiculoHibrido(Tipo_Transmision tipoTransmision, String marca, boolean esNuevo, String modelo,
+    public VehiculoHibrido(int codigoIdentificador, Tipo_Transmision tipoTransmision, String marca, boolean esNuevo, String modelo,
             int numeroCambios, double maximaVelocidad, int cilindraje, double precioDiaAlquiler,double precioVenta,Tipo_Combustible tipoCombustibleHibrido,
             int autonomia, boolean esEnchufable, boolean esHibridoLigero) {
-        super(tipoTransmision, marca, esNuevo, modelo, numeroCambios, maximaVelocidad, cilindraje, precioDiaAlquiler,  precioVenta);
+        super(codigoIdentificador, tipoTransmision, marca, esNuevo, modelo, numeroCambios, maximaVelocidad, cilindraje, precioDiaAlquiler,  precioVenta);
         this.tipoCombustibleHibrido = tipoCombustibleHibrido;
         this.autonomia = autonomia;
         this.esEnchufable = esEnchufable;

@@ -17,13 +17,13 @@ public class Camioneta extends VehiculoHibrido {
     private boolean es4x4;
 
 
-    public Camioneta(Tipo_Transmision tipoTransmision, String marca, boolean esNuevo, String modelo, int numeroCambios,
+    public Camioneta(int codigoIdentificador, Tipo_Transmision tipoTransmision, String marca, boolean esNuevo, String modelo, int numeroCambios,
             double maximaVelocidad, int cilindraje, double precioDiaAlquiler,double precioVenta, Tipo_Combustible tipoCombustibleHibrido,
             int autonomia, boolean esEnchufable, int numeroPasajeros, int numeroPuertas, boolean tieneAireAcondicionado,
             boolean tieneCamaraDeReversa, boolean tieneVelocidadCrucero, int numeroBolsasDeAire, boolean tieneABS,
             boolean tienesensoresDeColision, boolean tieneSensorDeTraficoCruzado,
             boolean tieneAsistenteDePermanenciaEnElCarril, boolean es4x4) {
-        super(tipoTransmision, marca, esNuevo, modelo, numeroCambios, maximaVelocidad, cilindraje, precioDiaAlquiler, precioVenta,
+        super(codigoIdentificador, tipoTransmision, marca, esNuevo, modelo, numeroCambios, maximaVelocidad, cilindraje, precioDiaAlquiler, precioVenta,
                 tipoCombustibleHibrido, autonomia, esEnchufable);
         this.numeroPasajeros = numeroPasajeros;
         this.numeroPuertas = numeroPuertas;
@@ -37,13 +37,13 @@ public class Camioneta extends VehiculoHibrido {
         this.tieneAsistenteDePermanenciaEnElCarril = tieneAsistenteDePermanenciaEnElCarril;
         this.es4x4 = es4x4;
     }
-    public Camioneta(Tipo_Transmision tipoTransmision, String marca, boolean esNuevo, String modelo, int numeroCambios,
+    public Camioneta(int codigoIdentificador, Tipo_Transmision tipoTransmision, String marca, boolean esNuevo, String modelo, int numeroCambios,
             double maximaVelocidad, int cilindraje, double precioDiaAlquiler,double precioVenta, Tipo_Combustible tipoCombustibleHibrido,
             int autonomia, boolean esEnchufable, boolean esHibridoLigero, int numeroPasajeros, int numeroPuertas,
             boolean tieneAireAcondicionado, boolean tieneCamaraDeReversa, boolean tieneVelocidadCrucero,
             int numeroBolsasDeAire, boolean tieneABS, boolean tienesensoresDeColision,
             boolean tieneSensorDeTraficoCruzado, boolean tieneAsistenteDePermanenciaEnElCarril, boolean es4x4) {
-        super(tipoTransmision, marca, esNuevo, modelo, numeroCambios, maximaVelocidad, cilindraje, precioDiaAlquiler, precioVenta,
+        super(codigoIdentificador, tipoTransmision, marca, esNuevo, modelo, numeroCambios, maximaVelocidad, cilindraje, precioDiaAlquiler, precioVenta,
                 tipoCombustibleHibrido, autonomia, esEnchufable, esHibridoLigero);
         this.numeroPasajeros = numeroPasajeros;
         this.numeroPuertas = numeroPuertas;

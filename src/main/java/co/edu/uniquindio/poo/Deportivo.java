@@ -12,10 +12,10 @@ public class Deportivo  extends VehiculoCombustible{
     private double numeroCaballosFuerza;
     private double tiempoAlcanzar100km;
 
-    public Deportivo(Tipo_Transmision tipoTransmision, String marca, boolean esNuevo, String modelo, int numeroCambios,
+    public Deportivo(int codigoIdentificador,Tipo_Transmision tipoTransmision, String marca, boolean esNuevo, String modelo, int numeroCambios,
             double maximaVelocidad, int cilindraje, double precioDiaAlquiler,double precioVenta, Tipo_Combustible tipo_Combustible, int numeroPasajeros,
             int numeroPuertas, int numeroBolsasAire, double numeroCaballosFuerza, double tiempoAlcanzar100km) {
-        super(tipoTransmision, marca, esNuevo, modelo, numeroCambios, maximaVelocidad, cilindraje, precioDiaAlquiler, precioVenta, tipo_Combustible);
+        super(codigoIdentificador, tipoTransmision, marca, esNuevo, modelo, numeroCambios, maximaVelocidad, cilindraje, precioDiaAlquiler, precioVenta, tipo_Combustible);
 
         this.numeroPasajeros = numeroPasajeros;
         this.numeroPuertas = numeroPuertas;
