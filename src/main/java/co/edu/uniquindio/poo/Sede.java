@@ -2,8 +2,11 @@ package co.edu.uniquindio.poo;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
+
 /**
  * Atributos de la clase Sede
  */
@@ -178,8 +181,8 @@ public class Sede {
      * 
      * @param vehiculos
      */
-    public void setVehiculos(LinkedList<Vehiculo> vehiculos) {
-        this.vehiculos = vehiculos;
+    public void setVehiculos(List<Vehiculo> vehiculos) {
+        this.vehiculos = (LinkedList<Vehiculo>) vehiculos;
     }
 
     /**
@@ -255,7 +258,7 @@ public class Sede {
                 }
             }
         }
-        if (transaccionesEnRango.isEmpty()){
+        if (transaccionesEnRango.isEmpty()) {
             throw new IllegalArgumentException("No existen transacciones en el rango especificado");
         }
         return transaccionesEnRango;
@@ -271,6 +274,12 @@ public class Sede {
                 + clientes + ", transacciones=" + transacciones + ", vehiculos=" + vehiculos;
     }
 
+    /**
+     * Verifica si un cliente existe según su cédula.
+     *
+     * @param cedula La cédula del cliente.
+     * @return true si el cliente existe, false si no.
+     */
     public boolean verificarCliente(String cedula) {
         boolean centinela = false;
         for (Cliente cliente : clientes) {
@@ -282,17 +291,31 @@ public class Sede {
         return centinela;
     }
 
+    /**
+     * Agrega un cliente a la lista si no existe previamente.
+     *
+     * @param cliente El cliente a agregar.
+     * @return true si el cliente fue agregado correctamente.
+     * @throws IllegalArgumentException si el cliente ya existe.
+     */
     public boolean agregarCliente(Cliente cliente) {
         boolean centinela = false;
         if (!verificarCliente(cliente.getCedula())) {
             clientes.add(cliente);
             centinela = true;
-        }else{
+        } else {
             throw new IllegalArgumentException("El cliente ya existe");
         }
         return centinela;
     }
 
+    /**
+     * Elimina un cliente por su cédula.
+     *
+     * @param cedula La cédula del cliente a eliminar.
+     * @return true si el cliente fue eliminado, false si no se encontró.
+     * @throws IllegalArgumentException si no se encuentra el cliente.
+     */
     public boolean eliminarCliente(String cedula) {
         boolean centinela = false;
         for (Cliente cliente : clientes) {
@@ -300,26 +323,40 @@ public class Sede {
                 clientes.remove(cliente);
                 centinela = true;
                 break;
-            }else{
+            } else {
                 throw new IllegalArgumentException("La cedula del cliente no coincide con la cedula ingresada");
             }
         }
-        return  centinela;
+        return centinela;
     }
 
+    /**
+     * Actualiza los datos de un cliente.
+     *
+     * @param cedula       La cédula del cliente a actualizar.
+     * @param nuevoCliente El nuevo cliente con los datos actualizados.
+     * @return true si se actualizó correctamente.
+     * @throws IllegalArgumentException si no se encuentra el cliente.
+     */
     public boolean actualizarCliente(String cedula, Cliente nuevoCliente) {
         boolean centinela = false;
         for (int i = 0; i < clientes.size(); i++) {
             if (clientes.get(i).getCedula().equals(cedula)) {
                 clientes.set(i, nuevoCliente);
                 centinela = true;
-            }else{
+            } else {
                 throw new IllegalArgumentException("No se pudo actualizar al cliente");
             }
         }
         return centinela;
     }
 
+    /**
+     * Verifica si un empleado existe según su cédula.
+     *
+     * @param cedula La cédula del empleado.
+     * @return true si el empleado existe, false si no.
+     */
     public boolean verificarEmpleado(String cedula) {
         boolean centinela = false;
         for (Empleado empleado : empleados) {
@@ -331,6 +368,12 @@ public class Sede {
         return centinela;
     }
 
+    /**
+     * Agrega un empleado si no existe previamente.
+     *
+     * @param empleado El empleado a agregar.
+     * @return true si el empleado fue agregado correctamente.
+     */
     public boolean agregarEmpleado(Empleado empleado) {
         boolean centinela = false;
         if (!verificarEmpleado(empleado.getCedula())) {
@@ -340,6 +383,12 @@ public class Sede {
         return centinela;
     }
 
+    /**
+     * Elimina un empleado por su cédula.
+     *
+     * @param cedula La cédula del empleado a eliminar.
+     * @return true si el empleado fue eliminado, false si no se encontró.
+     */
     public boolean eliminarEmpleado(String cedula) {
         boolean centinela = false;
         for (Empleado empleado : empleados) {
@@ -352,6 +401,13 @@ public class Sede {
         return centinela;
     }
 
+    /**
+     * Actualiza los datos de un empleado.
+     *
+     * @param cedula        La cédula del empleado a actualizar.
+     * @param nuevoEmpleado El nuevo empleado con los datos actualizados.
+     * @return true si se actualizó correctamente.
+     */
     public boolean actualizarEmpleado(String cedula, Empleado nuevoEmpleado) {
         boolean centinela = false;
         for (int i = 0; i < empleados.size(); i++) {
@@ -363,46 +419,102 @@ public class Sede {
         return centinela;
     }
 
+    /**
+     * Agrega un vehículo a la lista de vehículos.
+     *
+     * @param vehiculo El vehículo a agregar.
+     * @return true si el vehículo fue agregado correctamente.
+     * @throws IllegalArgumentException si el vehículo es nulo.
+     */
     public boolean agregarVehiculo(Vehiculo vehiculo) {
         boolean centinela = false;
         if (vehiculo != null) {
             vehiculos.add(vehiculo);
-            centinela = true; 
+            centinela = true;
         }
         if (!centinela) {
-            throw new IllegalArgumentException("Eror al agregar vehiculo.");
+            throw new IllegalArgumentException("Error al agregar vehiculo.");
         }
         return centinela;
     }
 
+    /**
+     * Metodo que rectifica si esta aprobada la revision tecnica del vehiculo
+     * 
+     * @param codigoIdentificador codigo con el que se identificca el vehiculo
+     * @return true o false dependiendo el resultado
+     */
     public boolean aprovarRevisionTecnica(int codigoIdentificador) {
         boolean centinela = false;
         for (Vehiculo vehiculo : vehiculos) {
-            if(vehiculo.getCodigoIdentificador()==codigoIdentificador){
+            if (vehiculo.getCodigoIdentificador() == codigoIdentificador) {
                 vehiculo.setRevisionTecnica(true);
-                centinela=true;
+                centinela = true;
                 break;
             }
         }
-        if(!centinela){
+        if (!centinela) {
             throw new IllegalArgumentException("El codigo es incorrecto o no existe el vehiculo");
         }
         return centinela;
     }
 
-    public boolean verificarCodigoSede(String respuestaCodigoSeguridadSede){
-        if(codigoSeguridad.equals(respuestaCodigoSeguridadSede)){
+    /**
+     * Metodo que verifica el codigo de la sede
+     * 
+     * @param respuestaCodigoSeguridadSede
+     * @return
+     */
+    public boolean verificarCodigoSede(String respuestaCodigoSeguridadSede) {
+        if (codigoSeguridad.equals(respuestaCodigoSeguridadSede)) {
             return true;
-        }else{
+        } else {
             throw new IllegalArgumentException("Codigo de sede incorrecto");
         }
     }
-    public String recuperarContraseñaAdministrador(String respuestaPalabra, String respuestaCodigoSeguridadSede){
-        if (administrador.verificarRespuestaPalabraSeguridad(respuestaPalabra) && verificarCodigoSede(respuestaCodigoSeguridadSede)) {
-                String contraseña="Hola administrador tu contraseña es: " + administrador.getClave();
-                return contraseña;
-        }else{
-            throw new IllegalArgumentException("Palabra de seguridad o Codigo de sede incorrectos");
+
+    /**
+     * Metodo que permite al administrador recuperar su contraseña
+     * 
+     * @param respuestaPalabra
+     * @param respuestaCodigoSeguridadSede
+     * @return
+     */
+    public String recuperarContraseñaAdministrador(String respuestaPalabra, String respuestaCodigoSeguridadSede) {
+        if (!administrador.verificarRespuestaPalabraSeguridad(respuestaPalabra)) {
+            throw new IllegalArgumentException("Palabra de seguridad incorrecta");
         }
+        if (!verificarCodigoSede(respuestaCodigoSeguridadSede)) {
+            throw new IllegalArgumentException("Codigo de sede incorrecto");
+        }
+        return "Hola administrador tu contraseña es: " + administrador.getClave();
+    }
+
+    /**
+     * Metodo que categoriza a los vehiculos en hibrido, electrico, combustible
+     * 
+     * @return clasificacion manda las listas clasificadas
+     */
+    public Map<String, List<Vehiculo>> clasificarVehiculosPorTipo() {
+        List<Vehiculo> vehiculosHibridos = new ArrayList<>();
+        List<Vehiculo> vehiculosElectricos = new ArrayList<>();
+        List<Vehiculo> vehiculosCombustible = new ArrayList<>();
+
+        for (Vehiculo vehiculo : vehiculos) {
+            if (vehiculo instanceof VehiculoHibrido) {
+                vehiculosHibridos.add(vehiculo);
+            } else if (vehiculo instanceof VehiculoElectrico) {
+                vehiculosElectricos.add(vehiculo);
+            } else {
+                vehiculosCombustible.add(vehiculo);
+            }
+        }
+
+        Map<String, List<Vehiculo>> clasificacion = new HashMap<>();
+        clasificacion.put("Híbridos", vehiculosHibridos);
+        clasificacion.put("Eléctricos", vehiculosElectricos);
+        clasificacion.put("Combustión", vehiculosCombustible);
+
+        return clasificacion;
     }
 }
