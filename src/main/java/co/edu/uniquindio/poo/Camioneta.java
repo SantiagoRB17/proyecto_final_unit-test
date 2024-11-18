@@ -124,5 +124,4 @@ public class Camioneta extends VehiculoHibrido {
         this.es4x4 = es4x4;
     }
 
-
 }

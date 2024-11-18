@@ -13,6 +13,7 @@ public class Van extends VehiculoElectrico {
     private boolean tieneCamaraDeReversa;
     private int numeroBolsasDeAire;
     private boolean tieneABS;
+    
 
     public Van(int codigoIdentificador, Tipo_Transmision tipoTransmision, String marca, boolean esNuevo, String modelo, int numeroCambios,
             double maximaVelocidad, int cilindraje,double precioDiaAlquiler, double precioVenta, int autonomia, double tiempoDeCarga, int numeroPasajeros,

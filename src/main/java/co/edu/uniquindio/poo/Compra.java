@@ -4,10 +4,10 @@ import java.time.LocalDate;
 
 public class Compra extends Transaccion {
     /**
-     * Atributos de la clase Compra
-     */
+ * Atributos de la clase Compra
+ */
     private double total;
-    private boolean revisonTecnica;
+
 
     /**
      * Metodo que permite crear compras
@@ -19,11 +19,10 @@ public class Compra extends Transaccion {
      * @param revisonTecnica       determina si el vehiculo
      * @throws PrecioVehiculoVacioException
      */
-    public Compra(int codigo, LocalDate fechaEntregaVehiculo, Empleado empleado, Vehiculo vehiculo,
-            boolean revisonTecnica) throws PrecioVehiculoVacioException {
+    public Compra(int codigo, LocalDate fechaEntregaVehiculo, Empleado empleado, Vehiculo vehiculo) throws PrecioVehiculoVacioException {
         super(codigo, fechaEntregaVehiculo, empleado, vehiculo);
         this.total = calcularTotal();
-        this.revisonTecnica = revisonTecnica;
+ 
     }
 
     public double getTotal() {
@@ -34,26 +33,37 @@ public class Compra extends Transaccion {
         this.total = total;
     }
 
-    public boolean isRevisonTecnica() {
-        return revisonTecnica;
-    }
-
-    public void setRevisonTecnica(boolean revisonTecnica) {
-        this.revisonTecnica = revisonTecnica;
-    }
-
     /**
      * Implementacion del metodo calculartotal para calcular el valor total de la
      *
      * compra
      */
     @Override
-    public double calcularTotal() throws PrecioVehiculoVacioException {
+    public double calcularTotal() {
+        double total = 0;
+        if (vehiculo instanceof Bus && vehiculo.isRevisionTecnica()) {
+            total = Bus.precioDiaAlquiler;
+        } else if (vehiculo instanceof Camion && vehiculo.isRevisionTecnica()) {
+            total = Camion.precioDiaAlquiler;
+        } else if (vehiculo instanceof Camioneta && vehiculo.isRevisionTecnica()) {
+            total = Camioneta.precioDiaAlquiler;
+        } else if (vehiculo instanceof Deportivo && vehiculo.isRevisionTecnica()) {
+            total = Deportivo.precioDiaAlquiler;
+        } else if (vehiculo instanceof PickUp && vehiculo.isRevisionTecnica()) {
+            total = PickUp.precioDiaAlquiler;
+        } else if (vehiculo instanceof Moto && vehiculo.isRevisionTecnica()) {
+            total = Moto.precioDiaAlquiler;
+        } else if (vehiculo instanceof Sedan && vehiculo.isRevisionTecnica()) {
+            total = Sedan.precioDiaAlquiler;
+        } else if (vehiculo instanceof Van && vehiculo.isRevisionTecnica()) {
+            total = Van.precioDiaAlquiler;
+        }
+        return total;
     }
 
     @Override
     public String toString() {
-        return "Compra: " + super.toString() + " , total=" + total + ", revisionTecnica=" + revisonTecnica;
+        return "Compra: " + super.toString() + " , total=" + total ;
     }
 
 }

@@ -369,6 +369,24 @@ public class Sede {
             vehiculos.add(vehiculo);
             centinela = true; 
         }
+        if (!centinela) {
+            throw new IllegalArgumentException("Eror al agregar vehiculo.");
+        }
+        return centinela;
+    }
+
+    public boolean aprovarRevisionTecnica(int codigoIdentificador) {
+        boolean centinela = false;
+        for (Vehiculo vehiculo : vehiculos) {
+            if(vehiculo.getCodigoIdentificador()==codigoIdentificador){
+                vehiculo.setRevisionTecnica(true);
+                centinela=true;
+                break;
+            }
+        }
+        if(!centinela){
+            throw new IllegalArgumentException("El codigo es incorrecto o no existe el vehiculo");
+        }
         return centinela;
     }
 
