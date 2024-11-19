@@ -52,3 +52,4 @@ public class Venta extends Transaccion {
         return "Venta: " + super.toString() + ", total=" + total;
     }
 }
+

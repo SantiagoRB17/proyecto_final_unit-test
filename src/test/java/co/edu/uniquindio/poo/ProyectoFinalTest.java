@@ -8,9 +8,14 @@
 package co.edu.uniquindio.poo;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.time.LocalDate;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 import java.util.logging.Logger;
 
 import org.junit.jupiter.api.Test;
@@ -177,37 +182,45 @@ public class ProyectoFinalTest {
 
     /**
      * Test para Buscar una transaccion por un rango de fechas
+     * 
+     * @throws PrecioVehiculoVacioException
      */
     @Test
+    public void testBuscarTransaccionesPorRango() throws PrecioVehiculoVacioException {
+
     public void buscarTransaccionesPorRangoTest() {
         Concesionario concesionario = new Concesionario("Tu Carro UQ");
         Administrador administrador1 = new Administrador("Santiago Bernal", "1092457", 123456, "Santiagoob", "457890N",
                 TipoRol.ADMINISTRADOR, "Lucas");
         Sede sede = new Sede("Sede Principal", "Cra 24#35-23", "Armenia", "6757a");
-        Empleado empleado1 = new Empleado("Andres", "1094646", 321456, "AndreZX", "uidadus", TipoRol.EMPLEADO, 1001,
+        Empleado empleado1 = new Empleado("Pedro", "5", 123456789, "Cra 10", "pedro@gmail.com", TipoRol.EMPLEADO, 1,
                 true, sede);
-        Empleado empleado2 = new Empleado("Nicolas", "10394646", 32145656, "NicoMN", "NICOO", TipoRol.EMPLEADO, 1002,
-                true, sede);
-        Empleado empleado3 = new Empleado("Fabio", "109464634", 32641456, "Fab", "reest", TipoRol.EMPLEADO, 1003, true,
-                sede);
-        Cliente cliente1 = new Cliente("Marta", "8972838", 321187394, "Cra 22", "Marta@gmail.com");
-        Cliente cliente2 = new Cliente("Sonia", "11972838", 327394, "Cra 16", "Sonia@gmail.com");
-        Cliente cliente3 = new Cliente("Pedro", "11083", 34563, "Cra 89", "Pedro@gmail.com");
-        Cliente cliente4 = new Cliente("Arturo", "110383", 4534563, "Cra 19", "Arturo@gmail.com");
-        concesionario.agregarAdministrador(administrador1);
-        concesionario.agregarSedes(sede);
-        sede.setAdministrador(administrador1);
-        administrador1.setSede(sede);
-        administrador1.agregarEmpleadoSede(empleado1);
-        administrador1.agregarEmpleadoSede(empleado2);
-        administrador1.agregarEmpleadoSede(empleado3);
-        empleado1.agregarClienteSede(cliente1);
-        empleado2.agregarClienteSede(cliente2);
-        empleado3.agregarClienteSede(cliente3);
-        empleado2.agregarClienteSede(cliente4);
+        Vehiculo vehiculo1 = new Moto(12345, Tipo_Transmision.MANUAL, "Yamaha", true, "Negro", 12345, 2020, 150, 2, 0,
+                null);
 
-        
-        LOG.info(sede.toString());
+        LocalDate fechaInicioRango = LocalDate.of(2023, 11, 1);
+        LocalDate fechaFinRango = LocalDate.of(2023, 11, 30);
+
+        Venta venta = new Venta(1, LocalDate.of(2023, 11, 5), empleado1, vehiculo1);
+        Compra compra = new Compra(2, LocalDate.of(2023, 11, 10), empleado1, vehiculo1);
+        Alquiler alquiler = new Alquiler(3, LocalDate.of(2023, 11, 2), empleado1, vehiculo1,
+                LocalDate.of(2023, 11, 16));
+        Alquiler alquilerFueraRango = new Alquiler(4, LocalDate.of(2023, 12, 1), empleado1, vehiculo1,
+                LocalDate.of(2023, 12, 5));
+
+        sede.agregarTransaccion(venta);
+        sede.agregarTransaccion(compra);
+        sede.agregarTransaccion(alquiler);
+        sede.agregarTransaccion(alquilerFueraRango);
+
+        List<Transaccion> transaccionesEncontradas = sede.buscarTransaccionesPorRango(fechaInicioRango, fechaFinRango);
+
+        assertEquals(3, transaccionesEncontradas.size(), "El número de transacciones encontradas es incorrecto");
+        assertTrue(transaccionesEncontradas.contains(venta), "La transacción de venta no está incluida");
+        assertTrue(transaccionesEncontradas.contains(compra), "La transacción de compra no está incluida");
+        assertTrue(transaccionesEncontradas.contains(alquiler), "La transacción de alquiler no está incluida");
+        assertFalse(transaccionesEncontradas.contains(alquilerFueraRango),
+                "La transacción fuera del rango fue incluida");
     }
 
     /**
@@ -459,6 +472,7 @@ public class ProyectoFinalTest {
 
     /**
      * Test para calcular costo con la revision tecnica aprobada
+     * 
      * @throws PrecioVehiculoVacioException
      */
     @Test
@@ -480,4 +494,73 @@ public class ProyectoFinalTest {
                 "El cálculo del total no es correcto para revisión técnica aprobada");
     }
 
+    /**
+     * Test que clasifica los vehiculos en su categoria
+     * (hibrido,electrico,combustible) con el fin de separarlos en la interfaz
+     */
+    @Test
+    public void testClasificarVehiculosPorTipo() {
+
+        LinkedList<Vehiculo> vehiculos = new LinkedList<>();
+        vehiculos.add(new VehiculoHibrido(1, null, "Toyota Prius", false, null, 0, 0, 0, 0, 0, null, 0, false));
+        vehiculos.add(new VehiculoElectrico(2, null, "Tesla Model 3", false, null, 0, 0, 0, 0, 0, 0, 0));
+        vehiculos.add(new VehiculoCombustible(3, null, "Ford Fiesta", false, null, 0, 0, 0, 0, 0, null));
+        vehiculos.add(new VehiculoHibrido(4, null, "Honda Insight", false, null, 0, 0, 0, 0, 0, null, 0, false));
+        vehiculos.add(new VehiculoCombustible(5, null, "Chevrolet Cruze", false, null, 0, 0, 0, 0, 0, null));
+        vehiculos.add(new VehiculoElectrico(6, null, "Nissan Leaf", false, null, 0, 0, 0, 0, 0, 0, 0));
+
+        Sede sede = new Sede("principal", "Cra 10", "armenia", "556a4");
+        sede.setVehiculos(vehiculos);
+
+        Map<String, List<Vehiculo>> clasificacion = sede.clasificarVehiculosPorTipo();
+
+        assertEquals(2, clasificacion.get("Híbridos").size(), "Debe haber 2 vehículos híbridos");
+        assertEquals(2, clasificacion.get("Eléctricos").size(), "Debe haber 2 vehículos eléctricos");
+        assertEquals(2, clasificacion.get("Combustión").size(), "Debe haber 2 vehículos de combustión");
+
+        assertTrue(clasificacion.get("Híbridos").stream().allMatch(v -> v instanceof VehiculoHibrido),
+                "Todos deben ser híbridos");
+        assertTrue(clasificacion.get("Eléctricos").stream().allMatch(v -> v instanceof VehiculoElectrico),
+                "Todos deben ser eléctricos");
+        assertTrue(clasificacion.get("Combustión").stream().allMatch(v -> v instanceof VehiculoCombustible),
+                "Todos deben ser de combustión");
+    }
+
+    /**
+     * Test para el metodo de recuperacion de contraseña
+     */
+    @Test
+    public void testRecuperarContraseñaAdministrador() {
+
+        Administrador administrador = new Administrador("admin", "1234", 12345, "Seguridad", "respuestaSegura",
+                TipoRol.ADMINISTRADOR, "palabra", "admin@");
+        administrador.setClave("contraseñaAdmin123");
+
+        Sede sede = new Sede("principal", "direccion", "ciudad", "codigoSede123");
+        administrador.setSede(sede);
+        sede.setAdministrador(administrador);
+
+        String respuestaPalabra = "palabra";
+        String respuestaCodigoSeguridadSede = "codigoSede123";
+        String resultado = sede.recuperarContraseñaAdministrador(respuestaPalabra, respuestaCodigoSeguridadSede);
+        assertEquals("Hola administrador tu contraseña es: contraseñaAdmin123", resultado, "La contraseña no coincide");
+
+        IllegalArgumentException excepcionPalabra = assertThrows(IllegalArgumentException.class, () -> {
+            sede.recuperarContraseñaAdministrador("respuestaIncorrecta", respuestaCodigoSeguridadSede);
+        });
+        assertEquals("Palabra de seguridad incorrecta", excepcionPalabra.getMessage(),
+                "El mensaje de la excepción no coincide");
+
+        IllegalArgumentException excepcionCodigo = assertThrows(IllegalArgumentException.class, () -> {
+            sede.recuperarContraseñaAdministrador(respuestaPalabra, "codigoIncorrecto");
+        });
+        assertEquals("Codigo de sede incorrecto", excepcionCodigo.getMessage(),
+                "El mensaje de la excepción no coincide");
+
+        IllegalArgumentException excepcionAmbas = assertThrows(IllegalArgumentException.class, () -> {
+            sede.recuperarContraseñaAdministrador("respuestaIncorrecta", "codigoIncorrecto");
+        });
+        assertEquals("Palabra de seguridad incorrecta", excepcionAmbas.getMessage(),
+                "El mensaje de la excepción no coincide");
+    }
 }
