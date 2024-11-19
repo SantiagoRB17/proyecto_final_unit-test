@@ -32,7 +32,7 @@ public class ProyectoFinalTest {
         Concesionario concesionario = new Concesionario("Tu Carro UQ");
         Sede sede = new Sede("principal", "norte", "armenia", "123");
         Administrador administrador1 = new Administrador("Santiago Bernal", "1092457", 123456, "Santiagoob", "457890N",
-                TipoRol.ADMINISTRADOR, "Lucas", "santiago.ramirezb1@uniquindio.edu.co");
+                TipoRol.ADMINISTRADOR, "Lucas");
 
         LOG.info(concesionario.toString());
 
@@ -90,9 +90,9 @@ public class ProyectoFinalTest {
 
         Concesionario concesionario = new Concesionario("Tu Carro UQ");
         Administrador administrador1 = new Administrador("Santiago Bernal", "1092457", 123456, "Santiagoob", "457890N",
-                TipoRol.ADMINISTRADOR, "Lucas", "santiago.ramirezb1@uniquindio.edu.co");
+                TipoRol.ADMINISTRADOR, "Lucas");
         Administrador administrador2 = new Administrador("Veronica Mendoza", "123456", 987654, "VeroM", "897654X",
-                TipoRol.ADMINISTRADOR, "Miguel", "VeroMemDoza@gmail.com");
+                TipoRol.ADMINISTRADOR, "Miguel");
         Sede sede = new Sede("Sede Principal", "Cra 24#35-23", "Armenia", "6757a");
 
         concesionario.agregarAdministrador(administrador1);
@@ -122,9 +122,9 @@ public class ProyectoFinalTest {
 
         Concesionario concesionario = new Concesionario("Tu Carro UQ");
         Administrador administrador1 = new Administrador("Santiago Bernal", "1092457", 123456, "Santiagoob", "457890N",
-                TipoRol.ADMINISTRADOR, "Lucas", "santiago.ramirezb1@uniquindio.edu.co");
+                TipoRol.ADMINISTRADOR, "Lucas");
         Administrador administrador2 = new Administrador("Veronica Mendoza", "123456", 987654, "VeroM", "897654X",
-                TipoRol.ADMINISTRADOR, "Miguel", "VeroMemDoza@gmail.com");
+                TipoRol.ADMINISTRADOR, "Miguel");
         Sede sede = new Sede("Sede Principal", "Cra 24#35-23", "Armenia", "6757a");
 
         concesionario.agregarAdministrador(administrador1);
@@ -154,9 +154,9 @@ public class ProyectoFinalTest {
 
         Concesionario concesionario = new Concesionario("Tu Carro UQ");
         Administrador administrador1 = new Administrador("Santiago Bernal", "1092457", 123456, "Santiagoob", "457890N",
-                TipoRol.ADMINISTRADOR, "Lucas", "santiago.ramirezb1@uniquindio.edu.co");
+                TipoRol.ADMINISTRADOR, "Lucas");
         Administrador administrador2 = new Administrador("Veronica Mendoza", "123456", 987654, "VeroM", "897654X",
-                TipoRol.ADMINISTRADOR, "Miguel", "VeroMemDoza@gmail.com");
+                TipoRol.ADMINISTRADOR, "Miguel");
         Sede sede = new Sede("Sede Principal", "Cra 24#35-23", "Armenia", "6757a");
 
         concesionario.agregarAdministrador(administrador1);
@@ -182,7 +182,7 @@ public class ProyectoFinalTest {
     public void buscarTransaccionesPorRangoTest() {
         Concesionario concesionario = new Concesionario("Tu Carro UQ");
         Administrador administrador1 = new Administrador("Santiago Bernal", "1092457", 123456, "Santiagoob", "457890N",
-                TipoRol.ADMINISTRADOR, "Lucas", "santiago.ramirezb1@uniquindio.edu.co");
+                TipoRol.ADMINISTRADOR, "Lucas");
         Sede sede = new Sede("Sede Principal", "Cra 24#35-23", "Armenia", "6757a");
         Empleado empleado1 = new Empleado("Andres", "1094646", 321456, "AndreZX", "uidadus", TipoRol.EMPLEADO, 1001,
                 true, sede);
@@ -219,7 +219,7 @@ public class ProyectoFinalTest {
 
         Concesionario concesionario = new Concesionario("Tu Carro UQ");
         Administrador admin = new Administrador("Juan", "123456", 987654321, "juanAdmin", "clave123",
-                TipoRol.ADMINISTRADOR, "Pregunta", "juan@gmail.com");
+                TipoRol.ADMINISTRADOR, "Pregunta");
         Sede sede = new Sede("Principal", "Cra 8 #28 sur", "Armenia", "6675a");
 
         concesionario.agregarAdministrador(admin);
@@ -255,7 +255,7 @@ public class ProyectoFinalTest {
 
         Concesionario concesionario = new Concesionario("Tu Carro UQ");
         Administrador admin = new Administrador("Juan", "123456", 987654321, "juanAdmin", "clave123",
-                TipoRol.ADMINISTRADOR, "Pregunta", "juan@gmail.com");
+                TipoRol.ADMINISTRADOR, "Pregunta");
         Sede sede = new Sede("Principal", "Cra 8 #28 sur", "Armenia", "6675a");
 
         concesionario.agregarAdministrador(admin);
@@ -285,7 +285,7 @@ public class ProyectoFinalTest {
 
         Concesionario concesionario = new Concesionario("Tu Carro UQ");
         Administrador admin = new Administrador("Juan", "123456", 987654321, "juanAdmin", "clave123",
-                TipoRol.ADMINISTRADOR, "Pregunta", "juan@gmail.com");
+                TipoRol.ADMINISTRADOR, "Pregunta");
         Sede sede = new Sede("Principal", "Cra 8 #28 sur", "Armenia", "6675a");
 
         concesionario.agregarAdministrador(admin);
@@ -322,7 +322,7 @@ public class ProyectoFinalTest {
 
         Concesionario concesionario = new Concesionario("Tu Carro UQ");
         Administrador admin = new Administrador("Juan", "123456", 987654321, "juanAdmin", "clave123",
-                TipoRol.ADMINISTRADOR, "Pregunta", "juan@gmail.com");
+                TipoRol.ADMINISTRADOR, "Pregunta");
         Sede sede = new Sede("Principal", "Cra 8 #28 sur", "Armenia", "6675a");
 
         concesionario.agregarAdministrador(admin);
@@ -351,7 +351,7 @@ public class ProyectoFinalTest {
 
         Concesionario concesionario = new Concesionario("Tu Carro UQ");
         Administrador admin = new Administrador("Juan", "123456", 987654321, "juanAdmin", "clave123",
-                TipoRol.ADMINISTRADOR, "Pregunta", "juan@gmail.com");
+                TipoRol.ADMINISTRADOR, "Pregunta");
         Sede sede = new Sede("Principal", "Cra 8 #28 sur", "Armenia", "6675a");
 
         concesionario.agregarAdministrador(admin);
@@ -378,7 +378,7 @@ public class ProyectoFinalTest {
 
         Concesionario concesionario = new Concesionario("Tu Carro UQ");
         Administrador admin = new Administrador("Juan", "123456", 987654321, "juanAdmin", "clave123",
-                TipoRol.ADMINISTRADOR, "Pregunta", "juan@gmail.com");
+                TipoRol.ADMINISTRADOR, "Pregunta");
         Sede sede = new Sede("Principal", "Cra 8 #28 sur", "Armenia", "6675a");
 
         concesionario.agregarAdministrador(admin);
@@ -406,7 +406,7 @@ public class ProyectoFinalTest {
 
         Concesionario concesionario = new Concesionario("Tu Carro UQ");
         Administrador admin = new Administrador("Juan", "123456", 987654321, "juanAdmin", "clave123",
-                TipoRol.ADMINISTRADOR, "Pregunta", "juan@gmail.com");
+                TipoRol.ADMINISTRADOR, "Pregunta");
         Sede sede = new Sede("Principal", "Cra 8 #28 sur", "Armenia", "6675a");
 
         concesionario.agregarAdministrador(admin);
